@@ -10,7 +10,7 @@
 # #
 #********************************************************************************#
 
-setwd("C:/Users/Raquel/Desktop/Economia-UFPR-Enade/2018/dados")
+setwd("C:/Users/Raquel/GitHub/economia-ufpr-enade-2018/dados")
 
 microdados_enade <- read.table("microdados_enade_2018.txt",header = TRUE, sep=";", dec = ".", 
 	colClasses=c(DS_VT_ACE_OFG="character",DS_VT_ACE_OCE="character"))

@@ -1,0 +1,3605 @@
+--------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  C:\Users\Raquel\GitHub\economia-ufpr-enade-2018\\Resultados-Economia-ENADE-2018.log
+  log type:  text
+ opened on:   3 Jun 2020, 16:37:18
+
+. 
+. // Iniciamos com uma descrição do banco de dados
+. 
+. // Média, mínimo, máximo e desvio-padrão de todas as variáveis não-string
+. 
+. ds, has(type numeric)
+NU_ANO        NU_ITEM_OF~N  TP_SFG_D2     CO_RS_I1      QE_I12        QE_I32        QE_I52
+CO_IES        NU_ITEM_OCE   TP_SCE_D1     CO_RS_I2      QE_I13        QE_I33        QE_I53
+CO_CATEGAD    NU_ITEM_OC~Z  TP_SCE_D2     CO_RS_I3      QE_I14        QE_I34        QE_I54
+CO_ORGACAD    NU_ITEM_OC~X  TP_SCE_D3     CO_RS_I4      QE_I15        QE_I35        QE_I55
+CO_GRUPO      NU_ITEM_OC~N  NT_GER        CO_RS_I5      QE_I16        QE_I36        QE_I56
+CO_CURSO      DS_VT~G_ORIG  NT_FG         CO_RS_I6      QE_I17        QE_I37        QE_I57
+CO_MODALID~E  DS_VT_~G_FIN  NT_OBJ_FG     CO_RS_I7      QE_I18        QE_I38        QE_I58
+CO_MUNIC_C~O  DS_VT~E_ORIG  NT_DIS_FG     CO_RS_I8      QE_I19        QE_I39        QE_I59
+CO_UF_CURSO   DS_VT_~E_FIN  NT_FG_D1      CO_RS_I9      QE_I20        QE_I40        QE_I60
+CO_REGIAO_~O  DS_VT_ESC_~G  NT_FG_D1_PT   QE_I01        QE_I21        QE_I41        QE_I61
+NU_IDADE      DS_VT_ACE_~G  NT_FG_D1_CT   QE_I02        QE_I22        QE_I42        QE_I62
+TP_SEXO       DS_VT_ESC_~E  NT_FG_D2      QE_I03        QE_I23        QE_I43        QE_I63
+ANO_FIM_EM    DS_VT_ACE_~E  NT_FG_D2_PT   QE_I04        QE_I24        QE_I44        QE_I64
+ANO_IN_GRAD   TP_PRES       NT_FG_D2_CT   QE_I05        QE_I25        QE_I45        QE_I65
+CO_TURNO_G~O  TP_PR_GER     NT_CE         QE_I06        QE_I26        QE_I46        QE_I66
+TP_INSCRIC~M  TP_PR_OB_FG   NT_OBJ_CE     QE_I07        QE_I27        QE_I47        QE_I67
+TP_INSCRICAO  TP_PR_DI_FG   NT_DIS_CE     QE_I08        QE_I28        QE_I48        QE_I68
+NU_ITEM_OFG   TP_PR_OB_CE   NT_CE_D1      QE_I09        QE_I29        QE_I49
+NU_ITEM_OF~Z  TP_PR_DI_CE   NT_CE_D2      QE_I10        QE_I30        QE_I50
+NU_ITEM_OF~X  TP_SFG_D1     NT_CE_D3      QE_I11        QE_I31        QE_I51
+
+. 
+. local numericas `r(varlist)'
+
+. 
+. foreach var of local numericas {
+  2.         tab CO_CURSO if CO_CURSO==12571 | CO_CURSO==49468, sum(`var')
+  3. }
+
+  CODIGO DO |   Summary of ANO DE REALIZACAO DO
+   CURSO NO |                EXAME
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |        2018           0          38
+      49468 |        2018           0          76
+------------+------------------------------------
+      Total |        2018           0         114
+
+  CODIGO DO |
+   CURSO NO |  Summary of CODIGO DA IES (E-MEC)
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |         571           0          38
+      49468 |         571           0          76
+------------+------------------------------------
+      Total |         571           0         114
+
+  CODIGO DO |   Summary of CODIGO DA CATEGORIA
+   CURSO NO |        ADMINISTRATIVA DA IES
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |       10002           0          38
+      49468 |       10002           0          76
+------------+------------------------------------
+      Total |       10002           0         114
+
+  CODIGO DO |  Summary of CODIGO DA ORGANIZACAO
+   CURSO NO |          ACADEMICA DA IES
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |       10028           0          38
+      49468 |       10028           0          76
+------------+------------------------------------
+      Total |       10028           0         114
+
+  CODIGO DO |    Summary of CODIGO DA AREA DE
+   CURSO NO |   ENQUADRAMENTO DO CURSO NO ENADE
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |          13           0          38
+      49468 |          13           0          76
+------------+------------------------------------
+      Total |          13           0         114
+
+  CODIGO DO |
+   CURSO NO | Summary of CODIGO DO CURSO NO ENADE
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |       12571           0          38
+      49468 |       49468           0          76
+------------+------------------------------------
+      Total |       37169   17470.205         114
+
+  CODIGO DO | Summary of CODIGO DA MODALIDADE DE
+   CURSO NO |               ENSINO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           1           0          38
+      49468 |           1           0          76
+------------+------------------------------------
+      Total |           1           0         114
+
+  CODIGO DO |  Summary of CODIGO DO MUNICIPIO DE
+   CURSO NO |       FUNCIONAMENTO DO CURSO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |     4106902           0          38
+      49468 |     4106902           0          76
+------------+------------------------------------
+      Total |     4106902           0         114
+
+  CODIGO DO |     Summary of CODIGO DA UF DE
+   CURSO NO |       FUNCIONAMENTO DO CURSO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |          41           0          38
+      49468 |          41           0          76
+------------+------------------------------------
+      Total |          41           0         114
+
+  CODIGO DO |   Summary of CODIGO DA REGIAO DE
+   CURSO NO |       FUNCIONAMENTO DO CURSO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           4           0          38
+      49468 |           4           0          76
+------------+------------------------------------
+      Total |           4           0         114
+
+  CODIGO DO |   Summary of IDADE DO INSCRITO EM
+   CURSO NO |             25/11/2018
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   24.710526   5.1249675          38
+      49468 |   27.934211   4.2936714          76
+------------+------------------------------------
+      Total |   26.859649   4.8131038         114
+
+  CODIGO DO |
+   CURSO NO |           Summary of SEXO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   1.5526316   .50389662          38
+      49468 |   1.7236842   .45014618          76
+------------+------------------------------------
+      Total |   1.6666667   .47348579         114
+
+  CODIGO DO |   Summary of ANO DE CONCLUSAO DO
+   CURSO NO |            ENSINO MEDIO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2010.8947   4.6834353          38
+      49468 |   2008.1974   4.4542706          76
+------------+------------------------------------
+      Total |   2009.0965   4.6884707         114
+
+  CODIGO DO |     Summary of ANO DE INICIO DA
+   CURSO NO |              GRADUACAO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2014.3158   .90360429          38
+      49468 |   2013.4211   1.9408806          76
+------------+------------------------------------
+      Total |   2013.7193   1.7166997         114
+
+  CODIGO DO |    Summary of CODIGO DO TURNO DE
+   CURSO NO |              GRADUACAO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           1           0          38
+      49468 |           4           0          76
+------------+------------------------------------
+      Total |           3   1.4204574         114
+
+  CODIGO DO |   Summary of FORMA PELA QUAL FOI
+   CURSO NO |        REALIZADA A INSCRICAO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           0           0          38
+      49468 |           0           0          76
+------------+------------------------------------
+      Total |           0           0         114
+
+  CODIGO DO |
+   CURSO NO |    Summary of TIPO DE INSCRICAO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           0           0          38
+      49468 |           0           0          76
+------------+------------------------------------
+      Total |           0           0         114
+
+  CODIGO DO | Summary of NUMERO DE ITENS DA PARTE
+   CURSO NO |     OBJETIVA DA FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           8           0          38
+      49468 |           8           0          76
+------------+------------------------------------
+      Total |           8           0         114
+
+            | Summary of NUMERO DE ITENS DA PARTE
+  CODIGO DO |   OBJETIVA DA FORMACAO GERAL QUE
+   CURSO NO |      FORAM EXCLUIDOS DEVIDO A
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           0           0          38
+      49468 |           0           0          76
+------------+------------------------------------
+      Total |           0           0         114
+
+            | Summary of NUMERO DE ITENS DA PARTE
+  CODIGO DO |   OBJETIVA DA FORMACAO GERAL QUE
+   CURSO NO |      FORAM EXCLUIDOS DEVIDO A
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           0           0          38
+      49468 |           0           0          76
+------------+------------------------------------
+      Total |           0           0         114
+
+            | Summary of NUMERO DE ITENS DA PARTE
+  CODIGO DO | OBJETIVA DA FORMACAO GERAL QUE NAO
+   CURSO NO |        SE APLICAM AO GRUPO 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           0           0          38
+      49468 |           0           0          76
+------------+------------------------------------
+      Total |           0           0         114
+
+  CODIGO DO | Summary of NUMERO DE ITENS DA PARTE
+   CURSO NO |  OBJETIVA DE COMPONENTE ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |          27           0          38
+      49468 |          27           0          76
+------------+------------------------------------
+      Total |          27           0         114
+
+            | Summary of NUMERO DE ITENS DA PARTE
+  CODIGO DO |  OBJETIVA DE COMPONENTE ESPECIFICO
+   CURSO NO |        QUE FORAM EXCLUIDOS D
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           0           0          38
+      49468 |           0           0          76
+------------+------------------------------------
+      Total |           0           0         114
+
+            | Summary of NUMERO DE ITENS DA PARTE
+  CODIGO DO |  OBJETIVA DE COMPONENTE ESPECIFICO
+   CURSO NO |        QUE FORAM EXCLUIDOS D
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           4           0          38
+      49468 |           4           0          76
+------------+------------------------------------
+      Total |           4           0         114
+
+            | Summary of NUMERO DE ITENS DA PARTE
+  CODIGO DO |  OBJETIVA DE COMPONENTE ESPECIFICO
+   CURSO NO |        QUE NAO SE APLICAM AO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           0           0          38
+      49468 |           0           0          76
+------------+------------------------------------
+      Total |           0           0         114
+
+  CODIGO DO |  Summary of VETOR QUE REPRESENTA O
+   CURSO NO | GABARITO ORIGINAL DE FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           1           0          38
+      49468 |           1           0          76
+------------+------------------------------------
+      Total |           1           0         114
+
+  CODIGO DO |  Summary of VETOR QUE REPRESENTA O
+   CURSO NO |  GABARITO FINAL DE FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           1           0          38
+      49468 |           1           0          76
+------------+------------------------------------
+      Total |           1           0         114
+
+            |  Summary of VETOR QUE REPRESENTA O
+  CODIGO DO |   GABARITO ORIGINAL DE COMPONENTE
+   CURSO NO |             ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |          13           0          38
+      49468 |          13           0          76
+------------+------------------------------------
+      Total |          13           0         114
+
+            |  Summary of VETOR QUE REPRESENTA O
+  CODIGO DO |    GABARITO FINAL DE COMPONENTE
+   CURSO NO |             ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |          11           0          38
+      49468 |          11           0          76
+------------+------------------------------------
+      Total |          11           0         114
+
+            |  Summary of VETOR QUE REPRESENTA A
+  CODIGO DO |    ESCOLHA DE RESPOSTA DA PARTE
+   CURSO NO |     OBJETIVA DA FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   56279.421   18369.341          38
+      49468 |   40308.776   27593.805          76
+------------+------------------------------------
+      Total |   45632.325   25942.913         114
+
+            | Summary of VETOR QUE REPRESENTA OS
+  CODIGO DO |    ACERTOS DA PARTE OBJETIVA NA
+   CURSO NO |           FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   174.39474   72.596828          38
+      49468 |   141.48684   99.189044          76
+------------+------------------------------------
+      Total |   152.45614   92.186819         114
+
+            |  Summary of VETOR QUE REPRESENTA A
+  CODIGO DO |    ESCOLHA DE RESPOSTA DA PARTE
+   CURSO NO |    OBJETIVA DO COMPONENTE ESPEC
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   256774.39   143156.12          38
+      49468 |   220576.83   154435.65          76
+------------+------------------------------------
+      Total |   232642.68   151109.08         114
+
+            | Summary of VETOR QUE REPRESENTA OS
+  CODIGO DO |    ACERTOS DA PARTE OBJETIVA DO
+   CURSO NO |        COMPONENTE ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   53823.895   53923.328          38
+      49468 |   46192.776    53791.02          76
+------------+------------------------------------
+      Total |   48736.482   53717.685         114
+
+  CODIGO DO |   Summary of TIPO DE PRESENCA NO
+   CURSO NO |                ENADE
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   546.23684   54.019733          38
+      49468 |   484.89474   136.66032          76
+------------+------------------------------------
+      Total |   505.34211   119.14146         114
+
+  CODIGO DO |   Summary of TIPO DE PRESENCA NA
+   CURSO NO |                PROVA
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   546.23684   54.019733          38
+      49468 |   484.89474   136.66032          76
+------------+------------------------------------
+      Total |   505.34211   119.14146         114
+
+  CODIGO DO |   Summary of TIPO DE PRESENCA NA
+   CURSO NO |  PARTE OBJETIVA NA FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   546.23684   54.019733          38
+      49468 |   484.89474   136.66032          76
+------------+------------------------------------
+      Total |   505.34211   119.14146         114
+
+  CODIGO DO |   Summary of TIPO DE PRESENCA NA
+   CURSO NO | PARTE DISCURSIVA NA FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   511.18421    94.95941          38
+      49468 |   461.52632    141.6314          76
+------------+------------------------------------
+      Total |   478.07895   129.68881         114
+
+            |   Summary of TIPO DE PRESENCA NA
+  CODIGO DO |    PARTE OBJETIVA NO COMPONENTE
+   CURSO NO |             ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   546.23684   54.019733          38
+      49468 |   484.89474   136.66032          76
+------------+------------------------------------
+      Total |   505.34211   119.14146         114
+
+            |   Summary of TIPO DE PRESENCA NA
+  CODIGO DO |   PARTE DISCURSIVA NO COMPONENTE
+   CURSO NO |             ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   511.18421    94.95941          38
+      49468 |   441.07895   142.69574          76
+------------+------------------------------------
+      Total |   464.44737   132.54828         114
+
+            |   Summary of TIPO DE SITUACAO DA
+  CODIGO DO |  QUESTAO 1 DA PARTE DISCURSIVA DA
+   CURSO NO |           FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   505.34211   98.936583          38
+      49468 |   444.17105    142.5927          76
+------------+------------------------------------
+      Total |    464.5614   132.43526         114
+
+            |   Summary of TIPO DE SITUACAO DA
+  CODIGO DO |  QUESTAO 2 DA PARTE DISCURSIVA DA
+   CURSO NO |           FORMACAO GERAL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   505.34211   98.936583          38
+      49468 |   441.23684    142.5761          76
+------------+------------------------------------
+      Total |   462.60526   132.73419         114
+
+            |   Summary of TIPO DE SITUACAO DA
+  CODIGO DO |  QUESTAO 1 DA PARTE DISCURSIVA DO
+   CURSO NO |        COMPONENTE ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   505.34211   98.936583          38
+      49468 |   432.42105   142.16706          76
+------------+------------------------------------
+      Total |   456.72807   133.46116         114
+
+            |   Summary of TIPO DE SITUACAO DA
+  CODIGO DO |  QUESTAO 2 DA PARTE DISCURSIVA DO
+   CURSO NO |        COMPONENTE ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   487.89474   107.96491          38
+      49468 |   408.98684   138.27398          76
+------------+------------------------------------
+      Total |   435.28947   133.80085         114
+
+            |   Summary of TIPO DE SITUACAO DA
+  CODIGO DO |  QUESTAO 3 DA PARTE DISCURSIVA DO
+   CURSO NO |        COMPONENTE ESPECIFICO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   481.97368   110.32691          38
+      49468 |   400.30263   135.68169          76
+------------+------------------------------------
+      Total |   427.52632    133.0399         114
+
+            |  Summary of NOTA BRUTA DA PROVA -
+  CODIGO DO |  MEDIA PONDERADA DA FORMACAO GERAL
+   CURSO NO |      (25%) E COMPONENTE ESPEC
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   366.32432   118.16492          37
+      49468 |       305.1   151.20944          60
+------------+------------------------------------
+      Total |   328.45361   142.06249          97
+
+            |  Summary of NOTA BRUTA NA FORMACAO
+  CODIGO DO |  GERAL - MEDIA PONDERADA DA PARTE
+   CURSO NO |      OBJETIVA (60%) E DISCURS
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   536.45946   151.36868          37
+      49468 |   447.78333   169.61952          60
+------------+------------------------------------
+      Total |   481.60825    167.7763          97
+
+            |   Summary of NOTA BRUTA NA PARTE
+  CODIGO DO |  OBJETIVA DA FORMACAO GERAL (VALOR
+   CURSO NO |             DE 0 A 100)
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   6.8648649   2.0569957          37
+      49468 |   7.0166667   1.9614217          60
+------------+------------------------------------
+      Total |   6.9587629   1.9891242          97
+
+            |   Summary of NOTA BRUTA NA PARTE
+  CODIGO DO |    DISCURSIVA DA FORMACAO GERAL
+   CURSO NO |         (VALOR DE 0 A 100)
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   80.027027   46.931088          37
+      49468 |       52.35   38.862131          60
+------------+------------------------------------
+      Total |   62.907216   44.008541          97
+
+            |   Summary of NOTA DA QUESTAO 1 DA
+  CODIGO DO | PARTE DISCURSIVA DA FORMACAO GERAL
+   CURSO NO |      - MEDIA PONDERADA DA PAR
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   47.216216   26.500666          37
+      49468 |   32.366667    24.60327          60
+------------+------------------------------------
+      Total |   38.030928   26.228743          97
+
+            |      Summary of NOTA DE LINGUA
+  CODIGO DO |  PORTUGUESA DA QUESTAO 1 DA PARTE
+   CURSO NO |  DISCURSIVA DA FORMACAO GERAL  (V
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   59.324324   30.188348          37
+      49468 |   54.083333     30.6358          60
+------------+------------------------------------
+      Total |   56.082474   30.415755          97
+
+            |   Summary of NOTA DE CONTEUDO DA
+  CODIGO DO |  QUESTAO 1 DA PARTE DISCURSIVA DA
+   CURSO NO |     FORMACAO GERAL (VALOR DE 0 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   44.189189   26.861618          37
+      49468 |   27.166667   25.166676          60
+------------+------------------------------------
+      Total |   33.659794   26.998413          97
+
+            |   Summary of NOTA DA QUESTAO 2 DA
+  CODIGO DO | PARTE DISCURSIVA NA FORMACAO GERAL
+   CURSO NO |      - MEDIA PONDERADA DA PAR
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   39.054054   25.475419          37
+      49468 |   27.483333   20.705761          60
+------------+------------------------------------
+      Total |   31.896907   23.211655          97
+
+            |      Summary of NOTA DE LINGUA
+  CODIGO DO |  PORTUGUESA DA QUESTAO 2 DA PARTE
+   CURSO NO |  DISCURSIVA DA FORMACAO GERAL  (V
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   56.351351   30.199537          37
+      49468 |       48.75   30.803161          60
+------------+------------------------------------
+      Total |   51.649485   30.641761          97
+
+            |   Summary of NOTA DE CONTEUDO DA
+  CODIGO DO |  QUESTAO 2 DA PARTE DISCURSIVA DA
+   CURSO NO |     FORMACAO GERAL (VALOR DE 0 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |    34.72973   26.165763          37
+      49468 |   22.166667   20.007767          60
+------------+------------------------------------
+      Total |   26.958763   23.246379          97
+
+            | Summary of NOTA BRUTA NO COMPONENTE
+  CODIGO DO |   ESPECIFICO - MEDIA PONDERADA DA
+   CURSO NO |       PARTE OBJETIVA (85%) E 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   293.89189   131.34894          37
+      49468 |       250.2   162.82452          60
+------------+------------------------------------
+      Total |   266.86598   152.37629          97
+
+            |   Summary of NOTA BRUTA NA PARTE
+  CODIGO DO |  OBJETIVA DO COMPONENTE ESPECIFICO
+   CURSO NO |         (VALOR DE 0 A 100)
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   59.945946   27.347502          37
+      49468 |          53   32.710854          60
+------------+------------------------------------
+      Total |   55.649485   30.814986          97
+
+            |   Summary of NOTA BRUTA NA PARTE
+  CODIGO DO | DISCURSIVA DO COMPONENTE ESPECIFICO
+   CURSO NO |         (VALOR DE 0 A 100)
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |    13.72973    11.67773          37
+      49468 |   11.583333   13.219518          60
+------------+------------------------------------
+      Total |   12.402062   12.634823          97
+
+            |   Summary of NOTA DA QUESTAO 1 DA
+  CODIGO DO |   PARTE DISCURSIVA DO COMPONENTE
+   CURSO NO |    ESPECIFICO (VALOR DE 0 A 100
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   24.864865   21.294447          37
+      49468 |   14.333333   19.342293          60
+------------+------------------------------------
+      Total |   18.350515    20.64988          97
+
+            |   Summary of NOTA DA QUESTAO 2 DA
+  CODIGO DO |   PARTE DISCURSIVA DO COMPONENTE
+   CURSO NO |    ESPECIFICO (VALOR DE 0 A 100
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   12.702703    17.18343          37
+      49468 |   9.4166667   15.570824          60
+------------+------------------------------------
+      Total |   10.670103   16.195885          97
+
+            |   Summary of NOTA DA QUESTAO 3 DA
+  CODIGO DO |   PARTE DISCURSIVA DO COMPONENTE
+   CURSO NO |    ESPECIFICO  (VALOR DE 0 A 10
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   24.324324   23.188903          37
+      49468 |       13.75   19.213894          60
+------------+------------------------------------
+      Total |   17.783505   21.335234          97
+
+            |    Summary of 1 - QUAL O GRAU DE
+  CODIGO DO | DIFICULDADE DESTA PROVA NA PARTE DE
+   CURSO NO |           FORMACAO GERAL?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   5.3421053   .96636169          38
+      49468 |   4.5526316    2.087389          76
+------------+------------------------------------
+      Total |   4.8157895   1.8268682         114
+
+            |    Summary of 2 - QUAL O GRAU DE
+  CODIGO DO | DIFICULDADE DESTA PROVA NA PARTE DO
+   CURSO NO |       COMPONENTE ESPECIFICO?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   6.0526316     1.13774          38
+      49468 |   5.0789474   2.3367394          76
+------------+------------------------------------
+      Total |   5.4035088   2.0641024         114
+
+            |    Summary of 3 - CONSIDERANDO A
+  CODIGO DO |  EXTENSAO DA PROVA, EM RELACAO AO
+   CURSO NO |    TEMPO TOTAL, VOCE CONSIDERA 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |         5.5   1.2247449          38
+      49468 |   4.5657895      2.0418          76
+------------+------------------------------------
+      Total |    4.877193   1.8584433         114
+
+            |  Summary of 4 - OS ENUNCIADOS DAS
+  CODIGO DO |    QUESTOES DA PROVA NA PARTE DE
+   CURSO NO |    FORMACAO GERAL ESTAVAM CLARO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   4.7894737   1.0176256          38
+      49468 |   4.2236842   1.9568593          76
+------------+------------------------------------
+      Total |   4.4122807   1.7182591         114
+
+            |  Summary of 5 - OS ENUNCIADOS DAS
+  CODIGO DO |   QUESTOES NA PARTE DO COMPONENTE
+   CURSO NO |     ESPECIFICO ESTAVAM CLAROS 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   4.8157895   .86540923          38
+      49468 |   4.1052632   1.8516943          76
+------------+------------------------------------
+      Total |   4.3421053   1.6230036         114
+
+            |          Summary of 6 - AS
+            |  INFORMACOES/INSTRUCOES FORNECIDAS
+  CODIGO DO | PARA A RESOLUCAO DAS QUESTOES FORAM
+   CURSO NO |                 SUF
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   5.1578947   .97332853          38
+      49468 |   4.6052632   2.0853709          76
+------------+------------------------------------
+      Total |   4.7894737   1.8069369         114
+
+            | Summary of 7 - VOCE SE DEPAROU COM
+  CODIGO DO |  ALGUMA DIFICULDADE AO RESPONDER A
+   CURSO NO |            PROVA. QUAL?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   6.2105263   1.5623595          38
+      49468 |   5.0394737   2.5162978          76
+------------+------------------------------------
+      Total |   5.4298246   2.3041682         114
+
+            | Summary of 8 - CONSIDERANDO APENAS
+  CODIGO DO |   AS QUESTOES OBJETIVAS DA PROVA,
+   CURSO NO |         VOCE PERCEBEU QUE:
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   6.8157895   1.2048385          38
+      49468 |   5.3815789    2.519085          76
+------------+------------------------------------
+      Total |   5.8596491   2.2689797         114
+
+            |   Summary of 9 - QUAL FOI O TEMPO
+  CODIGO DO |   GASTO POR VOCE PARA CONCLUIR A
+   CURSO NO |               PROVA?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   5.9473684     1.13774          38
+      49468 |   4.7763158   2.1639389          76
+------------+------------------------------------
+      Total |   5.1666667   1.9593961         114
+
+  CODIGO DO |
+   CURSO NO | Summary of QUAL O SEU ESTADO CIVIL?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.0263158   .16222142          38
+      49468 |   2.1578947   .78405156          76
+------------+------------------------------------
+      Total |   2.1140351   .64846684         114
+
+  CODIGO DO |   Summary of QUAL E A SUA COR OU
+   CURSO NO |                RACA?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.4473684   1.0577224          38
+      49468 |   2.3815789   1.1996344          76
+------------+------------------------------------
+      Total |   2.4035088    1.149985         114
+
+  CODIGO DO |        Summary of QUAL A SUA
+   CURSO NO |           NACIONALIDADE?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           2           0          38
+      49468 |   1.9605263   .38090382          76
+------------+------------------------------------
+      Total |   1.9736842   .31088018         114
+
+  CODIGO DO |     Summary of ATE QUE ETAPA DE
+   CURSO NO |   ESCOLARIZACAO SEU PAI CONCLUIU?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.7894737    1.905297          38
+      49468 |   4.0921053   1.9195668          76
+------------+------------------------------------
+      Total |   3.9912281   1.9117504         114
+
+  CODIGO DO |     Summary of ATE QUE ETAPA DE
+   CURSO NO |   ESCOLARIZACAO SUA MAE CONCLUIU?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           4   2.0268468          38
+      49468 |   4.0657895   1.8642999          76
+------------+------------------------------------
+      Total |   4.0438596   1.9112631         114
+
+  CODIGO DO |   Summary of ONDE E COM QUEM VOCE
+   CURSO NO |          MORA ATUALMENTE?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.9210526   1.2165876          38
+      49468 |   3.0263158   1.1658895          76
+------------+------------------------------------
+      Total |   2.9912281   1.1786869         114
+
+            |  Summary of QUANTAS PESSOAS DA SUA
+  CODIGO DO |  FAMILIA MORAM COM VOCE? CONSIDERE
+   CURSO NO |       SEUS PAIS, IRMAOS, CONJ
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.8421053   1.3461921          38
+      49468 |   3.1973684   1.5320551          76
+------------+------------------------------------
+      Total |   3.0789474   1.4763309         114
+
+            |  Summary of QUAL A RENDA TOTAL DE
+  CODIGO DO |     SUA FAMILIA, INCLUINDO SEUS
+   CURSO NO |            RENDIMENTOS?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.8947368   2.1154448          38
+      49468 |   4.0526316   2.0777856          76
+------------+------------------------------------
+      Total |           4   2.0823744         114
+
+            |    Summary of QUAL ALTERNATIVA A
+  CODIGO DO | SEGUIR MELHOR DESCREVE SUA SITUACAO
+   CURSO NO |      FINANCEIRA (INCLUINDO BOL
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.0526316   1.1612521          38
+      49468 |   3.6052632   1.6336376          76
+------------+------------------------------------
+      Total |   3.4210526   1.5104048         114
+
+            |    Summary of QUAL ALTERNATIVA A
+  CODIGO DO | SEGUIR MELHOR DESCREVE SUA SITUACAO
+   CURSO NO |      DE TRABALHO (EXCETO ESTAG
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.6842105   1.3577657          38
+      49468 |   3.6973684   1.9800319          76
+------------+------------------------------------
+      Total |   3.3596491   1.8536126         114
+
+            |   Summary of QUE TIPO DE BOLSA DE
+  CODIGO DO |  ESTUDOS OU FINANCIAMENTO DO CURSO
+   CURSO NO |      VOCE RECEBEU PARA CUSTEAR
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           2           0          38
+      49468 |   2.0394737   1.0762997          76
+------------+------------------------------------
+      Total |   2.0263158   .87704781         114
+
+            |     Summary of AO LONGO DA SUA
+  CODIGO DO | TRAJETORIA ACADEMICA, VOCE RECEBEU
+   CURSO NO |    ALGUM TIPO DE BOLSA DE PERMAN
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.3947368    1.174952          38
+      49468 |   2.1710526   1.0117728          76
+------------+------------------------------------
+      Total |    2.245614    1.068962         114
+
+            |     Summary of AO LONGO DA SUA
+  CODIGO DO | TRAJETORIA ACADEMICA, VOCE RECEBEU
+   CURSO NO |    ALGUM TIPO DE BOLSA ACADEMICA
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.3947368   1.1037889          38
+      49468 |   2.1842105   .93395969          76
+------------+------------------------------------
+      Total |    2.254386   .99388754         114
+
+            |    Summary of DURANTE O CURSO DE
+  CODIGO DO |    GRADUACAO, VOCE PARTICIPOU DE
+   CURSO NO |   PROGRAMAS E OU ATIVIDADES CURRI
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.3947368   1.3663816          38
+      49468 |   1.9868421    .6427736          76
+------------+------------------------------------
+      Total |    2.122807   .96064461         114
+
+            | Summary of SEU INGRESSO NO CURSO DE
+  CODIGO DO |    GRADUACAO SE DEU POR MEIO DE
+   CURSO NO |     POLITICAS DE ACAO AFIRMATI
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.5526316   1.2235829          38
+      49468 |   2.4736842   1.2052517          76
+------------+------------------------------------
+      Total |         2.5   1.2065456         114
+
+            |    Summary of EM QUE UNIDADE DA
+  CODIGO DO |  FEDERACAO VOCE CONCLUIU O ENSINO
+   CURSO NO |               MEDIO?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   27.868421   14.150105          38
+      49468 |   32.914286   12.556819          70
+------------+------------------------------------
+      Total |   31.138889   13.295673         108
+
+  CODIGO DO |  Summary of EM QUE TIPO DE ESCOLA
+   CURSO NO |     VOCE CURSOU O ENSINO MEDIO?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.3947368   .75478559          38
+      49468 |   2.4342105   .89941501          76
+------------+------------------------------------
+      Total |   2.4210526   .85076475         114
+
+  CODIGO DO |    Summary of QUAL MODALIDADE DE
+   CURSO NO |     ENSINO MEDIO VOCE CONCLUIU?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           2           0          38
+      49468 |   2.0131579   .41612245          76
+------------+------------------------------------
+      Total |   2.0087719   .33906728         114
+
+  CODIGO DO | Summary of QUEM MAIS LHE INCENTIVOU
+   CURSO NO |        A CURSAR A GRADUACAO?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.5526316   .76041839          38
+      49468 |         2.5   .90184995          76
+------------+------------------------------------
+      Total |   2.5175439   .85427044         114
+
+            | Summary of ALGUM DOS GRUPOS ABAIXO
+  CODIGO DO |     FOI DETERMINANTE PARA VOCE
+   CURSO NO |    ENFRENTAR DIFICULDADES DURANT
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.3157895   1.9327234          38
+      49468 |   3.9473684   2.8326418          76
+------------+------------------------------------
+      Total |   3.7368421    2.576451         114
+
+  CODIGO DO |  Summary of ALGUEM EM SUA FAMILIA
+   CURSO NO |     CONCLUIU UM CURSO SUPERIOR?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.0526316   .22629429          38
+      49468 |   2.0789474   .48340895          76
+------------+------------------------------------
+      Total |   2.0701754   .41475653         114
+
+            | Summary of EXCETUANDO-SE OS LIVROS
+  CODIGO DO |  INDICADOS NA BIBLIOGRAFIA DO SEU
+   CURSO NO |       CURSO, QUANTOS LIVROS V
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           3   1.2520254          38
+      49468 |   3.0789474   1.3736876          76
+------------+------------------------------------
+      Total |   3.0526316   1.3293295         114
+
+            |    Summary of QUANTAS HORAS POR
+  CODIGO DO |    SEMANA, APROXIMADAMENTE, VOCE
+   CURSO NO |  DEDICOU AOS ESTUDOS, EXCETUANDO 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.8947368   1.0600733          38
+      49468 |   3.1052632   1.3523209          76
+------------+------------------------------------
+      Total |   3.0350877   1.2616173         114
+
+            |  Summary of VOCE TEVE OPORTUNIDADE
+  CODIGO DO |      DE APRENDIZADO DE IDIOMA
+   CURSO NO |     ESTRANGEIRO NA INSTITUICAO?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.3157895    1.875954          38
+      49468 |   3.9210526   2.0050813          76
+------------+------------------------------------
+      Total |   3.7192982   1.9755531         114
+
+  CODIGO DO | Summary of QUAL O PRINCIPAL MOTIVO
+   CURSO NO | PARA VOCE TER ESCOLHIDO ESTE CURSO?
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.8157895   2.5978709          38
+      49468 |           4    2.751969          76
+------------+------------------------------------
+      Total |   3.9385965    2.691465         114
+
+            |  Summary of QUAL A PRINCIPAL RAZAO
+  CODIGO DO |    PARA VOCE TER ESCOLHIDO A SUA
+   CURSO NO |     INSTITUICAO DE EDUCACAO SUP
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   1.7368421   .60108957          38
+      49468 |   1.6184211   .56490956          76
+------------+------------------------------------
+      Total |   1.6578947   .57728304         114
+
+            | Summary of AS DISCIPLINAS CURSADAS
+  CODIGO DO |   CONTRIBUIRAM PARA SUA FORMACAO
+   CURSO NO |      INTEGRAL, COMO CIDADAO E 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           3   2.1053343          38
+      49468 |         3.6   1.8603412          70
+------------+------------------------------------
+      Total |   3.3888889   1.9614668         108
+
+            |  Summary of OS CONTEUDOS ABORDADOS
+  CODIGO DO |      NAS DISCIPLINAS DO CURSO
+   CURSO NO |  FAVORECERAM SUA ATUACAO EM ESTAG
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.2777778    1.523363          36
+      49468 |   2.9705882   1.7869393          68
+------------+------------------------------------
+      Total |   2.7307692   1.7249217         104
+
+            |    Summary of AS METODOLOGIAS DE
+  CODIGO DO |     ENSINO UTILIZADAS NO CURSO
+   CURSO NO | DESAFIARAM VOCE A APROFUNDAR CONHE
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |           3   1.9727878          38
+      49468 |   3.2428571   1.7728689          70
+------------+------------------------------------
+      Total |   3.1574074   1.8401647         108
+
+            |    Summary of O CURSO PROPICIOU
+  CODIGO DO |    EXPERIENCIAS DE APRENDIZAGEM
+   CURSO NO |             INOVADORAS.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.8157895   1.9844703          38
+      49468 |   2.7714286    1.669604          70
+------------+------------------------------------
+      Total |    2.787037   1.7775912         108
+
+            | Summary of O CURSO CONTRIBUIU PARA
+  CODIGO DO |      O DESENVOLVIMENTO DA SUA
+   CURSO NO |   CONSCIENCIA ETICA PARA O EXERCI
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2702703   2.1813432          37
+      49468 |   3.4428571   1.9533376          70
+------------+------------------------------------
+      Total |   3.3831776   2.0264518         107
+
+            |    Summary of NO CURSO VOCE TEVE
+  CODIGO DO |     OPORTUNIDADE DE APRENDER A
+   CURSO NO |        TRABALHAR EM EQUIPE.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2631579   2.1646323          38
+      49468 |   3.3285714   1.8550474          70
+------------+------------------------------------
+      Total |   3.3055556   1.9596792         108
+
+            |   Summary of O CURSO POSSIBILITOU
+  CODIGO DO | AUMENTAR SUA CAPACIDADE DE REFLEXAO
+   CURSO NO |           E ARGUMENTACAO.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.6578947   2.3627322          38
+      49468 |   3.9142857   2.0053758          70
+------------+------------------------------------
+      Total |   3.8240741   2.1304587         108
+
+            |    Summary of O CURSO PROMOVEU O
+  CODIGO DO |  DESENVOLVIMENTO DA SUA CAPACIDADE
+   CURSO NO |     DE PENSAR CRITICAMENTE, ANA
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.6315789   2.3529286          38
+      49468 |   3.8857143   2.0039299          70
+------------+------------------------------------
+      Total |   3.7962963   2.1257621         108
+
+            | Summary of O CURSO CONTRIBUIU PARA
+  CODIGO DO |   VOCE AMPLIAR SUA CAPACIDADE DE
+   CURSO NO |      COMUNICACAO NAS FORMAS OR
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2631579   2.1646323          38
+      49468 |   3.5571429   1.9827935          70
+------------+------------------------------------
+      Total |   3.4537037   2.0433812         108
+
+            | Summary of O CURSO CONTRIBUIU PARA
+  CODIGO DO | O DESENVOLVIMENTO DA SUA CAPACIDADE
+   CURSO NO |        DE APRENDER E ATUALI
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.4210526   2.2497036          38
+      49468 |   3.4428571   1.9754707          70
+------------+------------------------------------
+      Total |   3.4351852   2.0656204         108
+
+            |       Summary of AS RELACOES
+  CODIGO DO |  PROFESSOR-ALUNO AO LONGO DO CURSO
+   CURSO NO | ESTIMULARAM VOCE A ESTUDAR E APREN
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.1052632   2.0240376          38
+      49468 |   2.9714286   1.7853789          70
+------------+------------------------------------
+      Total |   3.0185185    1.864481         108
+
+            |   Summary of OS PLANOS DE ENSINO
+  CODIGO DO |   APRESENTADOS PELOS PROFESSORES
+   CURSO NO |    CONTRIBUIRAM PARA O DESENVOLV
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.8157895   1.8136906          38
+      49468 |   3.1142857   1.7071279          70
+------------+------------------------------------
+      Total |   3.0092593   1.7427842         108
+
+            |      Summary of AS REFERENCIAS
+  CODIGO DO |   BIBLIOGRAFICAS INDICADAS PELOS
+   CURSO NO | PROFESSORES NOS PLANOS DE ENSINO C
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2105263   2.1328562          38
+      49468 |   3.3768116   1.7581863          69
+------------+------------------------------------
+      Total |    3.317757   1.8913813         107
+
+            |     Summary of FORAM OFERECIDAS
+  CODIGO DO |  OPORTUNIDADES PARA OS ESTUDANTES
+   CURSO NO |   SUPERAREM DIFICULDADES RELACIO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.6944444   1.7859682          36
+      49468 |   2.6764706   1.6967148          68
+------------+------------------------------------
+      Total |   2.6826923    1.719474         104
+
+            |  Summary of A COORDENACAO DO CURSO
+  CODIGO DO |  ESTEVE DISPONIVEL PARA ORIENTACAO
+   CURSO NO |       ACADEMICA DOS ESTUDANTE
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.3684211   2.2107972          38
+      49468 |    3.030303   1.8561308          66
+------------+------------------------------------
+      Total |   3.1538462   1.9891415         104
+
+            |  Summary of O CURSO EXIGIU DE VOCE
+  CODIGO DO |  ORGANIZACAO E DEDICACAO FREQUENTE
+   CURSO NO |            AOS ESTUDOS.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.1578947   2.1375196          38
+      49468 |   3.6811594   2.0109462          69
+------------+------------------------------------
+      Total |   3.4953271   2.0621194         107
+
+            |     Summary of FORAM OFERECIDAS
+  CODIGO DO |  OPORTUNIDADES PARA OS ESTUDANTES
+   CURSO NO |   PARTICIPAREM DE PROGRAMAS, PRO
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2432432   2.1525877          37
+      49468 |   2.9402985   1.8080678          67
+------------+------------------------------------
+      Total |   3.0480769    1.932752         104
+
+            |     Summary of FORAM OFERECIDAS
+  CODIGO DO |  OPORTUNIDADES PARA OS ESTUDANTES
+   CURSO NO |   PARTICIPAREM DE PROJETOS DE IN
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.4736842   2.2629429          38
+      49468 |   2.9090909   1.8036482          66
+------------+------------------------------------
+      Total |   3.1153846    1.991768         104
+
+            |     Summary of O CURSO OFERECEU
+  CODIGO DO |    CONDICOES PARA OS ESTUDANTES
+   CURSO NO | PARTICIPAREM DE EVENTOS INTERNOS E
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.1081081    2.065373          37
+      49468 |   3.0298507   1.7317897          67
+------------+------------------------------------
+      Total |   3.0576923   1.8477324         104
+
+            |  Summary of A INSTITUICAO OFERECEU
+  CODIGO DO |  OPORTUNIDADES PARA OS ESTUDANTES
+   CURSO NO |      ATUAREM COMO REPRESENTAN
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.5483871   1.9636481          31
+      49468 |   2.6935484   1.7887509          62
+------------+------------------------------------
+      Total |   2.6451613   1.8394538          93
+
+            |   Summary of O CURSO FAVORECEU A
+  CODIGO DO | ARTICULACAO DO CONHECIMENTO TEORICO
+   CURSO NO |      COM ATIVIDADES PRATICAS.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.2105263   1.5095712          38
+      49468 |   2.4153846   1.5800742          65
+------------+------------------------------------
+      Total |   2.3398058   1.5501638         103
+
+            |  Summary of AS ATIVIDADES PRATICAS
+  CODIGO DO |  FORAM SUFICIENTES PARA RELACIONAR
+   CURSO NO |       OS CONTEUDOS DO CURSO C
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.2285714   1.5919968          35
+      49468 |   2.2615385   1.5337548          65
+------------+------------------------------------
+      Total |        2.25   1.5464198         100
+
+            | Summary of O CURSO PROPICIOU ACESSO
+  CODIGO DO |  A CONHECIMENTOS ATUALIZADOS E/OU
+   CURSO NO |       CONTEMPORANEOS EM SUA 
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.9189189   1.9347463          37
+      49468 |    3.057971   1.7479741          69
+------------+------------------------------------
+      Total |    3.009434   1.8073674         106
+
+            | Summary of O ESTAGIO SUPERVISIONADO
+  CODIGO DO |      PROPORCIONOU EXPERIENCIAS
+   CURSO NO |    DIVERSIFICADAS PARA A SUA FOR
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |    2.862069   2.2476041          29
+      49468 |   3.3529412   2.0863703          51
+------------+------------------------------------
+      Total |       3.175   2.1452037          80
+
+            | Summary of AS ATIVIDADES REALIZADAS
+  CODIGO DO |  DURANTE SEU TRABALHO DE CONCLUSAO
+   CURSO NO |        DE CURSO CONTRIBUIRAM
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.0294118   2.1948327          34
+      49468 |   3.5081967   1.9461325          61
+------------+------------------------------------
+      Total |   3.3368421   2.0400799          95
+
+            |     Summary of FORAM OFERECIDAS
+  CODIGO DO |  OPORTUNIDADES PARA OS ESTUDANTES
+   CURSO NO |   REALIZAREM INTERCAMBIOS E/OU E
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.0322581   1.6224235          31
+      49468 |    2.328125    1.690822          64
+------------+------------------------------------
+      Total |   2.2315789   1.6660096          95
+
+            |     Summary of FORAM OFERECIDAS
+  CODIGO DO |  OPORTUNIDADES PARA OS ESTUDANTES
+   CURSO NO |   REALIZAREM INTERCAMBIOS E/OU E
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   1.9090909   1.5484596          33
+      49468 |    1.921875   1.5358642          64
+------------+------------------------------------
+      Total |   1.9175258   1.5320881          97
+
+            |      Summary of OS ESTUDANTES
+            |     PARTICIPARAM DE AVALIACOES
+  CODIGO DO |  PERIODICAS DO CURSO (DISCIPLINAS,
+   CURSO NO |                ATUAC
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.4193548   2.0128619          31
+      49468 |   2.5230769   1.6212234          65
+------------+------------------------------------
+      Total |   2.4895833   1.7471468          96
+
+            |     Summary of AS AVALIACOES DE
+  CODIGO DO |  APRENDIZAGEM REALIZADAS DURANTE O
+   CURSO NO |    CURSO FORAM COMPATIVEIS COM O
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2432432   2.0737165          37
+      49468 |   3.3181818   1.8410623          66
+------------+------------------------------------
+      Total |   3.2912621   1.9180825         103
+
+            |      Summary of OS PROFESSORES
+  CODIGO DO |  APRESENTARAM DISPONIBILIDADE PARA
+   CURSO NO |   ATENDER OS ESTUDANTES FORA DO H
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.1842105   2.1034754          38
+      49468 |    3.469697   1.8828758          66
+------------+------------------------------------
+      Total |   3.3653846   1.9610661         104
+
+            |      Summary of OS PROFESSORES
+  CODIGO DO | DEMONSTRARAM DOMINIO DOS CONTEUDOS
+   CURSO NO |     ABORDADOS NAS DISCIPLINAS.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.5263158   2.2509679          38
+      49468 |    3.884058   1.9138522          69
+------------+------------------------------------
+      Total |   3.7570093   2.0366506         107
+
+            |      Summary of OS PROFESSORES
+            |      UTILIZARAM TECNOLOGIAS DA
+  CODIGO DO |  INFORMACAO E COMUNICACAO (TIC'S)
+   CURSO NO |               COMO E
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2894737   2.1041516          38
+      49468 |   3.6911765   1.8867753          68
+------------+------------------------------------
+      Total |   3.5471698   1.9670237         106
+
+            | Summary of A INSTITUICAO DISPOS DE
+  CODIGO DO |      QUANTIDADE SUFICIENTE DE
+   CURSO NO |   FUNCIONARIOS PARA O APOIO ADMIN
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.4864865   2.2806142          37
+      49468 |   3.7313433   2.0492577          67
+------------+------------------------------------
+      Total |   3.6442308   2.1266605         104
+
+            |  Summary of O CURSO DISPONIBILIZOU
+  CODIGO DO | MONITORES OU TUTORES PARA AUXILIAR
+   CURSO NO |           OS ESTUDANTES.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.2894737   2.1423389          38
+      49468 |   3.6176471   1.9241545          68
+------------+------------------------------------
+      Total |         3.5   2.0011901         106
+
+            |     Summary of AS CONDICOES DE
+  CODIGO DO |  INFRAESTRUTURA DAS SALAS DE AULA
+   CURSO NO |          FORAM ADEQUADAS.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.3684211   2.1234985          38
+      49468 |   3.6666667   1.8838842          69
+------------+------------------------------------
+      Total |   3.5607477   1.9675556         107
+
+            |    Summary of OS EQUIPAMENTOS E
+  CODIGO DO | MATERIAIS DISPONIVEIS PARA AS AULAS
+   CURSO NO |     PRATICAS FORAM ADEQUADOS P
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.0588235   2.1025407          34
+      49468 |   3.3870968    1.936321          62
+------------+------------------------------------
+      Total |   3.2708333   1.9919795          96
+
+            |      Summary of OS AMBIENTES E
+  CODIGO DO |  EQUIPAMENTOS DESTINADOS AS AULAS
+   CURSO NO |  PRATICAS FORAM ADEQUADOS AO CURS
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.7096774   2.0687121          31
+      49468 |    3.295082    1.926519          61
+------------+------------------------------------
+      Total |   3.0978261   1.9837792          92
+
+            | Summary of A BIBLIOTECA DISPOS DAS
+  CODIGO DO |  REFERENCIAS BIBLIOGRAFICAS QUE OS
+   CURSO NO |       ESTUDANTES NECESSITARA
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.3157895   2.0938167          38
+      49468 |   3.6911765   1.9869526          68
+------------+------------------------------------
+      Total |   3.5566038   2.0240468         106
+
+            | Summary of A INSTITUICAO CONTOU COM
+  CODIGO DO |   BIBLIOTECA VIRTUAL OU CONFERIU
+   CURSO NO |      ACESSO A OBRAS DISPONIVE
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.3823529   1.9542449          34
+      49468 |   3.0819672   1.9174209          61
+------------+------------------------------------
+      Total |   2.8315789   1.9496461          95
+
+            | Summary of AS ATIVIDADES ACADEMICAS
+  CODIGO DO | DESENVOLVIDAS DENTRO E FORA DA SALA
+   CURSO NO |         DE AULA POSSIBILITA
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.3513514   2.2511258          37
+      49468 |   3.5373134   1.8935965          67
+------------+------------------------------------
+      Total |   3.4711538   2.0191161         104
+
+            |  Summary of A INSTITUICAO PROMOVEU
+  CODIGO DO |  ATIVIDADES DE CULTURA, DE LAZER E
+   CURSO NO |          INTERACAO SOCIAL.
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   2.6111111   1.9607255          36
+      49468 |   2.7384615   1.8224033          65
+------------+------------------------------------
+      Total |   2.6930693   1.8640954         101
+
+            | Summary of A INSTITUICAO DISPOS DE
+  CODIGO DO | REFEITORIO, CANTINA E BANHEIROS EM
+   CURSO NO |        CONDICOES ADEQUADAS Q
+      ENADE |        Mean   Std. Dev.       Freq.
+------------+------------------------------------
+      12571 |   3.4210526   2.1888116          38
+      49468 |   3.6376812   1.9701524          69
+------------+------------------------------------
+      Total |   3.5607477   2.0428318         107
+
+. 
+. //Tabulação de todas as variáveis categóricas da base
+. 
+. ds, has(vall)
+CO_CATEGAD    DS_VT_ACE_~E  NT_OBJ_CE     QE_I07        QE_I24        QE_I41        QE_I58
+CO_ORGACAD    TP_PRES       NT_DIS_CE     QE_I08        QE_I25        QE_I42        QE_I59
+CO_GRUPO      TP_PR_GER     CO_RS_I1      QE_I09        QE_I26        QE_I43        QE_I60
+CO_MODALID~E  TP_PR_OB_FG   CO_RS_I2      QE_I10        QE_I27        QE_I44        QE_I61
+CO_UF_CURSO   TP_PR_DI_FG   CO_RS_I3      QE_I11        QE_I28        QE_I45        QE_I62
+CO_REGIAO_~O  TP_PR_OB_CE   CO_RS_I4      QE_I12        QE_I29        QE_I46        QE_I63
+TP_SEXO       TP_PR_DI_CE   CO_RS_I5      QE_I13        QE_I30        QE_I47        QE_I64
+CO_TURNO_G~O  TP_SFG_D1     CO_RS_I6      QE_I14        QE_I31        QE_I48        QE_I65
+TP_INSCRIC~M  TP_SFG_D2     CO_RS_I7      QE_I15        QE_I32        QE_I49        QE_I66
+TP_INSCRICAO  TP_SCE_D1     CO_RS_I8      QE_I16        QE_I33        QE_I50        QE_I67
+DS_VT~G_ORIG  TP_SCE_D2     CO_RS_I9      QE_I17        QE_I34        QE_I51        QE_I68
+DS_VT_~G_FIN  TP_SCE_D3     QE_I01        QE_I18        QE_I35        QE_I52
+DS_VT~E_ORIG  NT_GER        QE_I02        QE_I19        QE_I36        QE_I53
+DS_VT_~E_FIN  NT_FG         QE_I03        QE_I20        QE_I37        QE_I54
+DS_VT_ESC_~G  NT_OBJ_FG     QE_I04        QE_I21        QE_I38        QE_I55
+DS_VT_ACE_~G  NT_DIS_FG     QE_I05        QE_I22        QE_I39        QE_I56
+DS_VT_ESC_~E  NT_CE         QE_I06        QE_I23        QE_I40        QE_I57
+
+. 
+. local categoricas `r(varlist)'
+
+. 
+. foreach var of local categoricas {
+  2.         tab `var' CO_CURSO if CO_CURSO==12571 | CO_CURSO==49468
+  3. }
+
+                      |  CODIGO DO CURSO NO
+  CODIGO DA CATEGORIA |         ENADE
+ADMINISTRATIVA DA IES |     12571      49468 |     Total
+----------------------+----------------------+----------
+                10002 |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+CODIGO DA ORGANIZACAO |         ENADE
+     ACADEMICA DA IES |     12571      49468 |     Total
+----------------------+----------------------+----------
+                10028 |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+    CODIGO DA AREA DE |  CODIGO DO CURSO NO
+     ENQUADRAMENTO DO |         ENADE
+       CURSO NO ENADE |     12571      49468 |     Total
+----------------------+----------------------+----------
+                   13 |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+ CODIGO DA MODALIDADE |         ENADE
+            DE ENSINO |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+      CODIGO DA UF DE |  CODIGO DO CURSO NO
+     FUNCIONAMENTO DO |         ENADE
+                CURSO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                   41 |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  CODIGO DA REGIAO DE |  CODIGO DO CURSO NO
+     FUNCIONAMENTO DO |         ENADE
+                CURSO |     12571      49468 |     Total
+----------------------+----------------------+----------
+PROXIMIDADE DA MINHA  |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+                      |         ENADE
+                 SEXO |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |        17         21 |        38 
+           GRATUIDADE |        21         55 |        76 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+   CODIGO DO TURNO DE |         ENADE
+            GRADUACAO |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |        38          0 |        38 
+PROXIMIDADE DA MINHA  |         0         76 |        76 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+  FORMA PELA QUAL FOI |         ENADE
+REALIZADA A INSCRICAO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                    0 |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+                      |         ENADE
+    TIPO DE INSCRICAO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                    0 |        38         76 |       114 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+O GABARITO |
+  ORIGINAL |
+        DE |  CODIGO DO CURSO NO
+  FORMACAO |         ENADE
+     GERAL |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |        38         76 |       114 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+O GABARITO |
+  FINAL DE |  CODIGO DO CURSO NO
+  FORMACAO |         ENADE
+     GERAL |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |        38         76 |       114 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+O GABARITO |
+  ORIGINAL |
+        DE |  CODIGO DO CURSO NO
+COMPONENTE |         ENADE
+ESPECIFICO |     12571      49468 |     Total
+-----------+----------------------+----------
+        13 |        38         76 |       114 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+O GABARITO |
+  FINAL DE |  CODIGO DO CURSO NO
+COMPONENTE |         ENADE
+ESPECIFICO |     12571      49468 |     Total
+-----------+----------------------+----------
+        11 |        38         76 |       114 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+ A ESCOLHA |
+        DE |
+  RESPOSTA |
+  DA PARTE |
+  OBJETIVA |
+        DA |  CODIGO DO CURSO NO
+  FORMACAO |         ENADE
+     GERAL |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         1         16 |        17 
+      8966 |         0          1 |         1 
+     13356 |         0          1 |         1 
+     17089 |         0          1 |         1 
+     21623 |         0          1 |         1 
+     21949 |         0          1 |         1 
+     22198 |         0          1 |         1 
+     23880 |         0          1 |         1 
+     25457 |         0          1 |         1 
+     26922 |         0          1 |         1 
+     29484 |         0          1 |         1 
+     43558 |         0          1 |         1 
+     43584 |         1          0 |         1 
+     45367 |         0          1 |         1 
+     45922 |         0          1 |         1 
+     46537 |         0          1 |         1 
+     46543 |         1          0 |         1 
+     46557 |         0          1 |         1 
+     46630 |         1          0 |         1 
+     46637 |         0          1 |         1 
+     46678 |         1          0 |         1 
+     46742 |         1          1 |         2 
+     46835 |         1          1 |         2 
+     46984 |         0          1 |         1 
+     47015 |         0          1 |         1 
+     47037 |         0          1 |         1 
+     47049 |         0          2 |         2 
+     47089 |         1          0 |         1 
+     47093 |         0          1 |         1 
+     47171 |         0          1 |         1 
+     47185 |         3          2 |         5 
+     47192 |         0          2 |         2 
+     47203 |         0          1 |         1 
+     47238 |         0          1 |         1 
+     47239 |         1          3 |         4 
+     47245 |         1          0 |         1 
+     47266 |         0          1 |         1 
+     47518 |         1          0 |         1 
+     47765 |         0          1 |         1 
+     47814 |         1          1 |         2 
+     48273 |         1          0 |         1 
+     48770 |         1          0 |         1 
+     48815 |         1          0 |         1 
+     49015 |         0          1 |         1 
+     49085 |         0          1 |         1 
+     49375 |         0          1 |         1 
+     49396 |         1          0 |         1 
+     49462 |         1          0 |         1 
+     49473 |         0          1 |         1 
+     49515 |         1          0 |         1 
+     51145 |         0          1 |         1 
+     51282 |         1          0 |         1 
+     51316 |         0          1 |         1 
+     52071 |         1          0 |         1 
+     53461 |         1          0 |         1 
+     55097 |         1          0 |         1 
+     55683 |         0          1 |         1 
+     55695 |         1          1 |         2 
+     55735 |         2          0 |         2 
+     56150 |         0          1 |         1 
+     60200 |         0          1 |         1 
+     62113 |         0          1 |         1 
+     63799 |         0          1 |         1 
+     64164 |         1          0 |         1 
+     65660 |         1          0 |         1 
+     65955 |         1          0 |         1 
+     69014 |         0          1 |         1 
+     69682 |         0          1 |         1 
+     69705 |         0          1 |         1 
+     74090 |         1          0 |         1 
+     74955 |         1          0 |         1 
+     75379 |         0          1 |         1 
+     90305 |         1          0 |         1 
+     90385 |         0          1 |         1 
+     91791 |         0          1 |         1 
+     91799 |         1          0 |         1 
+     92153 |         1          1 |         2 
+     92154 |         0          1 |         1 
+     92513 |         0          1 |         1 
+     93185 |         1          0 |         1 
+     94224 |         0          1 |         1 
+     97168 |         0          1 |         1 
+     97572 |         1          0 |         1 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+OS ACERTOS |
+  DA PARTE |
+  OBJETIVA |
+        NA |  CODIGO DO CURSO NO
+  FORMACAO |         ENADE
+     GERAL |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         1         16 |        17 
+         2 |         0          1 |         1 
+         4 |         0          1 |         1 
+        10 |         1          1 |         2 
+        11 |         0          1 |         1 
+        29 |         1          0 |         1 
+        64 |         0          1 |         1 
+        65 |         0          1 |         1 
+        68 |         1          0 |         1 
+        73 |         0          1 |         1 
+        74 |         1          0 |         1 
+        80 |         1          0 |         1 
+        82 |         0          2 |         2 
+        87 |         1          0 |         1 
+        90 |         0          1 |         1 
+        99 |         0          1 |         1 
+       105 |         0          2 |         2 
+       109 |         0          1 |         1 
+       115 |         1          0 |         1 
+       116 |         0          1 |         1 
+       123 |         2          0 |         2 
+       127 |         0          1 |         1 
+       130 |         1          1 |         2 
+       147 |         0          1 |         1 
+       153 |         0          1 |         1 
+       154 |         0          2 |         2 
+       156 |         1          0 |         1 
+       161 |         1          0 |         1 
+       163 |         0          1 |         1 
+       169 |         1          1 |         2 
+       177 |         1          0 |         1 
+       179 |         0          1 |         1 
+       182 |         0          1 |         1 
+       184 |         0          1 |         1 
+       185 |         1          0 |         1 
+       186 |         1          0 |         1 
+       187 |         0          2 |         2 
+       191 |         2          0 |         2 
+       192 |         1          1 |         2 
+       194 |         1          1 |         2 
+       201 |         0          1 |         1 
+       208 |         2          0 |         2 
+       210 |         0          1 |         1 
+       219 |         3          1 |         4 
+       222 |         1          0 |         1 
+       224 |         0          1 |         1 
+       225 |         0          1 |         1 
+       226 |         2          1 |         3 
+       231 |         0          1 |         1 
+       233 |         0          1 |         1 
+       234 |         1          1 |         2 
+       235 |         0          1 |         1 
+       239 |         0          1 |         1 
+       242 |         2          4 |         6 
+       243 |         0          1 |         1 
+       247 |         1          1 |         2 
+       249 |         0          1 |         1 
+       250 |         1          4 |         5 
+       251 |         0          1 |         1 
+       252 |         1          1 |         2 
+       254 |         0          3 |         3 
+       255 |         0          1 |         1 
+       257 |         3          2 |         5 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+ A ESCOLHA |
+        DE |
+  RESPOSTA |
+  DA PARTE |
+  OBJETIVA |
+        DO |  CODIGO DO CURSO NO
+COMPONENTE |         ENADE
+     ESPEC |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         1         16 |        17 
+       678 |         1          0 |         1 
+      6333 |         1          0 |         1 
+     20629 |         1          0 |         1 
+     31036 |         0          1 |         1 
+     61147 |         1          0 |         1 
+     61720 |         0          1 |         1 
+     63159 |         0          1 |         1 
+     70924 |         1          0 |         1 
+     71113 |         1          0 |         1 
+     73788 |         1          0 |         1 
+     74712 |         0          1 |         1 
+     76073 |         0          1 |         1 
+     78443 |         0          1 |         1 
+     81093 |         1          0 |         1 
+     99903 |         0          1 |         1 
+    103267 |         1          0 |         1 
+    104084 |         0          1 |         1 
+    120104 |         0          1 |         1 
+    125565 |         0          1 |         1 
+    182762 |         0          1 |         1 
+    183164 |         0          1 |         1 
+    183214 |         0          1 |         1 
+    195369 |         0          1 |         1 
+    200121 |         0          1 |         1 
+    205849 |         1          0 |         1 
+    207822 |         1          0 |         1 
+    208334 |         0          1 |         1 
+    210879 |         0          1 |         1 
+    210892 |         0          1 |         1 
+    212316 |         1          0 |         1 
+    214562 |         0          1 |         1 
+    226381 |         0          1 |         1 
+    229326 |         1          0 |         1 
+    237905 |         0          1 |         1 
+    243252 |         0          1 |         1 
+    248774 |         1          0 |         1 
+    257921 |         1          0 |         1 
+    268731 |         0          1 |         1 
+    270884 |         0          1 |         1 
+    290129 |         0          1 |         1 
+    290533 |         0          1 |         1 
+    290898 |         0          1 |         1 
+    291396 |         0          1 |         1 
+    291936 |         0          1 |         1 
+    295073 |         1          0 |         1 
+    300972 |         0          1 |         1 
+    301631 |         1          0 |         1 
+    304255 |         1          0 |         1 
+    305188 |         0          1 |         1 
+    305294 |         0          1 |         1 
+    305439 |         0          1 |         1 
+    305560 |         1          0 |         1 
+    307174 |         0          1 |         1 
+    307594 |         1          0 |         1 
+    308130 |         1          0 |         1 
+    308933 |         1          0 |         1 
+    310068 |         0          1 |         1 
+    310141 |         0          1 |         1 
+    310346 |         1          0 |         1 
+    310351 |         0          1 |         1 
+    311113 |         1          0 |         1 
+    311229 |         0          1 |         1 
+    311259 |         1          0 |         1 
+    312284 |         0          1 |         1 
+    313348 |         0          1 |         1 
+    318826 |         0          1 |         1 
+    326035 |         0          1 |         1 
+    326758 |         0          1 |         1 
+    331760 |         1          0 |         1 
+    338305 |         1          0 |         1 
+    365646 |         1          0 |         1 
+    368300 |         0          1 |         1 
+    374840 |         0          1 |         1 
+    385940 |         1          0 |         1 
+    386209 |         0          1 |         1 
+    387334 |         0          1 |         1 
+    388340 |         1          0 |         1 
+    388425 |         1          0 |         1 
+    388494 |         0          1 |         1 
+    403401 |         1          0 |         1 
+    409420 |         0          1 |         1 
+    412538 |         0          1 |         1 
+    415396 |         0          1 |         1 
+    418899 |         0          1 |         1 
+    421296 |         0          1 |         1 
+    429643 |         0          1 |         1 
+    434561 |         0          1 |         1 
+    435122 |         1          0 |         1 
+    437469 |         0          1 |         1 
+    445007 |         1          0 |         1 
+    445065 |         1          0 |         1 
+    445362 |         0          1 |         1 
+    446397 |         0          1 |         1 
+    447953 |         0          1 |         1 
+    450464 |         0          1 |         1 
+    457538 |         1          0 |         1 
+    458003 |         1          0 |         1 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+ VETOR QUE |
+REPRESENTA |
+OS ACERTOS |
+  DA PARTE |
+  OBJETIVA |
+        DO |  CODIGO DO CURSO NO
+COMPONENTE |         ENADE
+ESPECIFICO |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         1         16 |        17 
+       144 |         0          2 |         2 
+       156 |         0          1 |         1 
+       227 |         0          1 |         1 
+       475 |         0          1 |         1 
+       931 |         0          1 |         1 
+      1151 |         1          0 |         1 
+      1205 |         1          0 |         1 
+      1888 |         0          1 |         1 
+      2084 |         0          1 |         1 
+      2422 |         0          1 |         1 
+      2508 |         1          0 |         1 
+      2535 |         0          1 |         1 
+      2579 |         0          1 |         1 
+      2582 |         0          1 |         1 
+      3763 |         0          1 |         1 
+      4895 |         1          0 |         1 
+      6723 |         1          0 |         1 
+      7509 |         0          1 |         1 
+      7830 |         1          0 |         1 
+      8028 |         0          1 |         1 
+      9140 |         0          1 |         1 
+      9297 |         1          0 |         1 
+      9506 |         0          1 |         1 
+      9531 |         1          0 |         1 
+     12863 |         0          1 |         1 
+     12876 |         1          0 |         1 
+     12903 |         1          0 |         1 
+     13167 |         0          1 |         1 
+     13706 |         1          0 |         1 
+     14754 |         1          0 |         1 
+     16997 |         1          0 |         1 
+     17584 |         0          1 |         1 
+     17871 |         0          1 |         1 
+     19588 |         1          0 |         1 
+     25722 |         0          1 |         1 
+     25745 |         0          1 |         1 
+     26057 |         0          1 |         1 
+     26415 |         0          1 |         1 
+     26790 |         1          0 |         1 
+     27087 |         0          1 |         1 
+     27153 |         1          0 |         1 
+     28721 |         0          1 |         1 
+     29048 |         1          0 |         1 
+     29060 |         1          0 |         1 
+     29147 |         0          1 |         1 
+     29250 |         1          0 |         1 
+     31016 |         1          0 |         1 
+     31537 |         1          0 |         1 
+     32954 |         0          1 |         1 
+     32957 |         0          1 |         1 
+     36258 |         1          0 |         1 
+     36920 |         1          0 |         1 
+     37860 |         0          1 |         1 
+     37983 |         0          1 |         1 
+     38525 |         1          0 |         1 
+     38799 |         1          0 |         1 
+     39938 |         0          1 |         1 
+     40296 |         0          1 |         1 
+     41298 |         0          1 |         1 
+     41349 |         0          1 |         1 
+     42147 |         0          1 |         1 
+    102946 |         0          1 |         1 
+    104178 |         1          0 |         1 
+    104451 |         1          0 |         1 
+    106144 |         0          1 |         1 
+    106355 |         0          1 |         1 
+    108893 |         0          1 |         1 
+    114834 |         0          1 |         1 
+    115421 |         1          0 |         1 
+    115571 |         0          1 |         1 
+    116837 |         0          1 |         1 
+    117047 |         0          1 |         1 
+    118415 |         0          1 |         1 
+    118532 |         0          1 |         1 
+    119029 |         0          1 |         1 
+    121332 |         0          1 |         1 
+    127625 |         0          1 |         1 
+    128258 |         1          0 |         1 
+    128297 |         0          1 |         1 
+    128301 |         0          1 |         1 
+    128467 |         0          1 |         1 
+    129795 |         1          0 |         1 
+    130400 |         1          0 |         1 
+    130715 |         0          1 |         1 
+    132881 |         0          1 |         1 
+    133418 |         1          0 |         1 
+    136290 |         0          1 |         1 
+    140378 |         1          0 |         1 
+    140673 |         1          0 |         1 
+    140868 |         0          1 |         1 
+    142510 |         1          0 |         1 
+    142654 |         1          0 |         1 
+    144849 |         0          1 |         1 
+    144851 |         1          0 |         1 
+    147119 |         0          1 |         1 
+    148014 |         0          1 |         1 
+-----------+----------------------+----------
+     Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+  TIPO DE PRESENCA NO |         ENADE
+                ENADE |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  555 |        37         60 |        97 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+  TIPO DE PRESENCA NA |         ENADE
+                PROVA |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  555 |        37         60 |        97 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE PRESENCA NA |  CODIGO DO CURSO NO
+    PARTE OBJETIVA NA |         ENADE
+       FORMACAO GERAL |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  555 |        37         60 |        97 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE PRESENCA NA |  CODIGO DO CURSO NO
+  PARTE DISCURSIVA NA |         ENADE
+       FORMACAO GERAL |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  333 |         6          8 |        14 
+                  555 |        31         52 |        83 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE PRESENCA NA |  CODIGO DO CURSO NO
+    PARTE OBJETIVA NO |         ENADE
+COMPONENTE ESPECIFICO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  555 |        37         60 |        97 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE PRESENCA NA |  CODIGO DO CURSO NO
+  PARTE DISCURSIVA NO |         ENADE
+COMPONENTE ESPECIFICO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  333 |         6         15 |        21 
+                  555 |        31         45 |        76 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE SITUACAO DA |
+   QUESTAO 1 DA PARTE |  CODIGO DO CURSO NO
+        DISCURSIVA DA |         ENADE
+       FORMACAO GERAL |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  333 |         7          9 |        16 
+                  335 |         0          2 |         2 
+                  336 |         0          3 |         3 
+                  555 |        30         46 |        76 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE SITUACAO DA |
+   QUESTAO 2 DA PARTE |  CODIGO DO CURSO NO
+        DISCURSIVA DA |         ENADE
+       FORMACAO GERAL |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  333 |         7         11 |        18 
+                  336 |         0          4 |         4 
+                  555 |        30         45 |        75 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE SITUACAO DA |
+   QUESTAO 1 DA PARTE |  CODIGO DO CURSO NO
+        DISCURSIVA DO |         ENADE
+COMPONENTE ESPECIFICO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  333 |         7         15 |        22 
+                  335 |         0          1 |         1 
+                  336 |         0          2 |         2 
+                  555 |        30         42 |        72 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE SITUACAO DA |
+   QUESTAO 2 DA PARTE |  CODIGO DO CURSO NO
+        DISCURSIVA DO |         ENADE
+COMPONENTE ESPECIFICO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  333 |         9         25 |        34 
+                  336 |         1          1 |         2 
+                  555 |        27         34 |        61 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  TIPO DE SITUACAO DA |
+   QUESTAO 3 DA PARTE |  CODIGO DO CURSO NO
+        DISCURSIVA DO |         ENADE
+COMPONENTE ESPECIFICO |     12571      49468 |     Total
+----------------------+----------------------+----------
+                  222 |         1         16 |        17 
+                  333 |        11         26 |        37 
+                  336 |         0          3 |         3 
+                  555 |        26         31 |        57 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+NOTA BRUTA |
+DA PROVA - |
+     MEDIA |
+ PONDERADA |
+        DA |
+  FORMACAO |
+     GERAL |
+   (25%) E |  CODIGO DO CURSO NO
+COMPONENTE |         ENADE
+     ESPEC |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         0          1 |         1 
+        71 |         0          1 |         1 
+        80 |         0          2 |         2 
+        92 |         1          1 |         2 
+       101 |         1          0 |         1 
+       102 |         0          1 |         1 
+       126 |         0          1 |         1 
+       138 |         1          0 |         1 
+       149 |         0          1 |         1 
+       153 |         0          1 |         1 
+       165 |         1          0 |         1 
+       167 |         0          1 |         1 
+       175 |         0          1 |         1 
+       176 |         0          1 |         1 
+       178 |         0          1 |         1 
+       182 |         0          1 |         1 
+       185 |         0          1 |         1 
+       188 |         0          1 |         1 
+       195 |         0          1 |         1 
+       241 |         0          2 |         2 
+       242 |         0          1 |         1 
+       244 |         0          1 |         1 
+       245 |         0          1 |         1 
+       247 |         0          1 |         1 
+       251 |         0          1 |         1 
+       253 |         1          1 |         2 
+       254 |         1          0 |         1 
+       255 |         0          1 |         1 
+       265 |         0          2 |         2 
+       266 |         0          1 |         1 
+       274 |         0          1 |         1 
+       277 |         1          0 |         1 
+       278 |         1          0 |         1 
+       280 |         0          1 |         1 
+       283 |         0          1 |         1 
+       288 |         0          1 |         1 
+       305 |         1          0 |         1 
+       306 |         1          0 |         1 
+       308 |         1          0 |         1 
+       312 |         0          1 |         1 
+       316 |         0          1 |         1 
+       321 |         0          1 |         1 
+       323 |         1          1 |         2 
+       326 |         0          1 |         1 
+       327 |         0          1 |         1 
+       331 |         0          1 |         1 
+       346 |         2          1 |         3 
+       347 |         1          0 |         1 
+       351 |         1          0 |         1 
+       354 |         1          0 |         1 
+       355 |         0          1 |         1 
+       367 |         0          1 |         1 
+       372 |         1          0 |         1 
+       374 |         1          0 |         1 
+       381 |         1          0 |         1 
+       382 |         0          1 |         1 
+       383 |         1          0 |         1 
+       398 |         1          0 |         1 
+       401 |         1          0 |         1 
+       402 |         1          0 |         1 
+       407 |         0          1 |         1 
+       415 |         1          0 |         1 
+       421 |         1          0 |         1 
+       426 |         0          1 |         1 
+       440 |         1          0 |         1 
+       441 |         1          0 |         1 
+       456 |         0          1 |         1 
+       457 |         0          1 |         1 
+       465 |         1          0 |         1 
+       466 |         0          1 |         1 
+       473 |         0          1 |         1 
+       486 |         1          0 |         1 
+       492 |         0          1 |         1 
+       493 |         1          1 |         2 
+       502 |         0          1 |         1 
+       507 |         0          1 |         1 
+       511 |         1          0 |         1 
+       513 |         1          0 |         1 
+       514 |         0          1 |         1 
+       516 |         1          0 |         1 
+       522 |         1          0 |         1 
+       525 |         0          1 |         1 
+       526 |         1          0 |         1 
+       537 |         0          1 |         1 
+       550 |         1          0 |         1 
+       573 |         0          1 |         1 
+       629 |         0          1 |         1 
+       703 |         0          1 |         1 
+-----------+----------------------+----------
+     Total |        37         60 |        97 
+
+NOTA BRUTA |
+        NA |
+  FORMACAO |
+   GERAL - |
+     MEDIA |
+ PONDERADA |
+  DA PARTE |
+  OBJETIVA |  CODIGO DO CURSO NO
+   (60%) E |         ENADE
+   DISCURS |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         0          1 |         1 
+        60 |         1          1 |         2 
+       127 |         0          1 |         1 
+       140 |         0          1 |         1 
+       190 |         0          1 |         1 
+       220 |         1          2 |         3 
+       249 |         1          0 |         1 
+       264 |         0          1 |         1 
+       270 |         0          1 |         1 
+       280 |         0          1 |         1 
+       295 |         1          1 |         2 
+       318 |         0          1 |         1 
+       329 |         0          1 |         1 
+       361 |         0          1 |         1 
+       370 |         0          1 |         1 
+       375 |         1          4 |         5 
+       378 |         0          1 |         1 
+       381 |         0          1 |         1 
+       385 |         0          1 |         1 
+       387 |         0          1 |         1 
+       388 |         0          1 |         1 
+       393 |         0          1 |         1 
+       397 |         0          1 |         1 
+       410 |         1          0 |         1 
+       420 |         0          1 |         1 
+       434 |         0          1 |         1 
+       435 |         1          0 |         1 
+       442 |         1          0 |         1 
+       443 |         0          1 |         1 
+       444 |         0          1 |         1 
+       452 |         0          1 |         1 
+       453 |         1          0 |         1 
+       455 |         1          2 |         3 
+       474 |         0          1 |         1 
+       475 |         1          0 |         1 
+       480 |         1          0 |         1 
+       483 |         1          0 |         1 
+       486 |         0          1 |         1 
+       496 |         0          1 |         1 
+       501 |         0          1 |         1 
+       502 |         0          1 |         1 
+       507 |         1          0 |         1 
+       516 |         0          1 |         1 
+       521 |         0          1 |         1 
+       540 |         1          0 |         1 
+       542 |         0          1 |         1 
+       547 |         0          1 |         1 
+       552 |         1          0 |         1 
+       553 |         0          1 |         1 
+       562 |         1          0 |         1 
+       563 |         1          0 |         1 
+       566 |         0          1 |         1 
+       576 |         0          1 |         1 
+       583 |         1          0 |         1 
+       590 |         0          1 |         1 
+       597 |         1          0 |         1 
+       601 |         1          0 |         1 
+       604 |         1          0 |         1 
+       605 |         1          1 |         2 
+       609 |         1          0 |         1 
+       613 |         1          1 |         2 
+       614 |         0          1 |         1 
+       616 |         0          1 |         1 
+       619 |         0          1 |         1 
+       621 |         1          0 |         1 
+       626 |         1          1 |         2 
+       638 |         1          0 |         1 
+       657 |         1          0 |         1 
+       658 |         1          1 |         2 
+       660 |         0          2 |         2 
+       664 |         0          1 |         1 
+       667 |         0          1 |         1 
+       670 |         1          0 |         1 
+       672 |         1          0 |         1 
+       679 |         1          0 |         1 
+       701 |         1          0 |         1 
+       708 |         0          1 |         1 
+       712 |         1          0 |         1 
+       719 |         1          0 |         1 
+       728 |         1          0 |         1 
+       733 |         0          1 |         1 
+       797 |         0          1 |         1 
+-----------+----------------------+----------
+     Total |        37         60 |        97 
+
+NOTA BRUTA |
+  NA PARTE |
+  OBJETIVA |
+        DA |
+  FORMACAO |
+     GERAL |  CODIGO DO CURSO NO
+ (VALOR DE |         ENADE
+  0 A 100) |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         0          1 |         1 
+         2 |         3          2 |         5 
+         3 |         1          2 |         3 
+         4 |         1          2 |         3 
+         5 |         3          0 |         3 
+         6 |         2         15 |        17 
+         7 |         9          7 |        16 
+         8 |        11         16 |        27 
+         9 |         7         15 |        22 
+-----------+----------------------+----------
+     Total |        37         60 |        97 
+
+NOTA BRUTA |
+  NA PARTE |
+DISCURSIVA |
+        DA |
+  FORMACAO |
+     GERAL |  CODIGO DO CURSO NO
+ (VALOR DE |         ENADE
+  0 A 100) |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         6         11 |        17 
+         7 |         0          1 |         1 
+         8 |         0          1 |         1 
+        10 |         0          1 |         1 
+        12 |         0          1 |         1 
+        15 |         0          1 |         1 
+        16 |         0          1 |         1 
+        20 |         0          1 |         1 
+        24 |         1          1 |         2 
+        28 |         0          1 |         1 
+        31 |         0          1 |         1 
+        33 |         1          0 |         1 
+        36 |         0          1 |         1 
+        37 |         1          0 |         1 
+        39 |         1          1 |         2 
+        40 |         0          2 |         2 
+        45 |         0          2 |         2 
+        47 |         0          1 |         1 
+        49 |         0          1 |         1 
+        50 |         0          1 |         1 
+        54 |         0          1 |         1 
+        57 |         1          2 |         3 
+        58 |         0          1 |         1 
+        63 |         1          0 |         1 
+        64 |         0          1 |         1 
+        66 |         0          1 |         1 
+        67 |         0          2 |         2 
+        71 |         0          1 |         1 
+        72 |         0          1 |         1 
+        74 |         0          1 |         1 
+        75 |         0          2 |         2 
+        76 |         1          0 |         1 
+        77 |         0          1 |         1 
+        79 |         1          0 |         1 
+        80 |         2          0 |         2 
+        86 |         1          2 |         3 
+        87 |         0          2 |         2 
+        89 |         0          1 |         1 
+        90 |         1          0 |         1 
+        93 |         0          1 |         1 
+        94 |         2          0 |         2 
+        95 |         1          0 |         1 
+        99 |         2          0 |         2 
+       100 |         0          1 |         1 
+       101 |         1          1 |         2 
+       103 |         1          1 |         2 
+       104 |         0          1 |         1 
+       105 |         1          0 |         1 
+       107 |         0          1 |         1 
+       108 |         1          0 |         1 
+       110 |         0          1 |         1 
+       111 |         1          0 |         1 
+       115 |         0          1 |         1 
+       117 |         1          2 |         3 
+       121 |         1          0 |         1 
+       125 |         2          0 |         2 
+       127 |         1          0 |         1 
+       132 |         0          1 |         1 
+       137 |         1          0 |         1 
+       144 |         1          0 |         1 
+       151 |         1          0 |         1 
+       155 |         1          0 |         1 
+-----------+----------------------+----------
+     Total |        37         60 |        97 
+
+NOTA BRUTA |
+        NO |
+COMPONENTE |
+ESPECIFICO |
+   - MEDIA |
+ PONDERADA |
+  DA PARTE |  CODIGO DO CURSO NO
+  OBJETIVA |         ENADE
+  (85%) E  |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         0          1 |         1 
+         6 |         0          1 |         1 
+        20 |         1          0 |         1 
+        57 |         0          6 |         6 
+        93 |         2          2 |         4 
+        98 |         0          1 |         1 
+       108 |         1          1 |         2 
+       115 |         1          0 |         1 
+       120 |         0          1 |         1 
+       127 |         0          1 |         1 
+       135 |         1          4 |         5 
+       142 |         0          1 |         1 
+       145 |         0          1 |         1 
+       155 |         1          0 |         1 
+       160 |         1          0 |         1 
+       171 |         0          6 |         6 
+       172 |         1          0 |         1 
+       177 |         0          1 |         1 
+       187 |         1          0 |         1 
+       189 |         1          1 |         2 
+       209 |         0          2 |         2 
+       211 |         1          1 |         2 
+       228 |         0          1 |         1 
+       230 |         0          1 |         1 
+       245 |         1          1 |         2 
+       254 |         0          2 |         2 
+       255 |         1          0 |         1 
+       264 |         0          1 |         1 
+       272 |         0          1 |         1 
+       275 |         0          1 |         1 
+       282 |         1          0 |         1 
+       287 |         1          0 |         1 
+       289 |         1          0 |         1 
+       292 |         1          1 |         2 
+       297 |         1          0 |         1 
+       307 |         0          1 |         1 
+       318 |         1          0 |         1 
+       319 |         0          1 |         1 
+       337 |         0          1 |         1 
+       341 |         1          0 |         1 
+       342 |         1          0 |         1 
+       346 |         0          1 |         1 
+       347 |         1          0 |         1 
+       356 |         1          0 |         1 
+       360 |         0          1 |         1 
+       375 |         1          0 |         1 
+       387 |         2          0 |         2 
+       390 |         2          0 |         2 
+       395 |         0          2 |         2 
+       397 |         1          2 |         3 
+       407 |         1          0 |         1 
+       420 |         0          1 |         1 
+       421 |         0          2 |         2 
+       429 |         0          1 |         1 
+       430 |         1          0 |         1 
+       444 |         2          0 |         2 
+       447 |         0          1 |         1 
+       460 |         1          1 |         2 
+       513 |         0          1 |         1 
+       514 |         1          0 |         1 
+       553 |         0          1 |         1 
+       560 |         1          0 |         1 
+       613 |         0          1 |         1 
+       655 |         0          1 |         1 
+       677 |         0          1 |         1 
+-----------+----------------------+----------
+     Total |        37         60 |        97 
+
+NOTA BRUTA |
+  NA PARTE |
+  OBJETIVA |
+        DO |
+COMPONENTE |
+ESPECIFICO |  CODIGO DO CURSO NO
+ (VALOR DE |         ENADE
+  0 A 100) |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         0          2 |         2 
+         8 |         1          0 |         1 
+        16 |         0          6 |         6 
+        24 |         5          7 |        12 
+        31 |         4          6 |        10 
+        41 |         2          9 |        11 
+        47 |         3          5 |         8 
+        56 |         4          5 |         9 
+        68 |         3          3 |         6 
+        77 |         4          4 |         8 
+        86 |         7          5 |        12 
+        95 |         2          3 |         5 
+       103 |         1          0 |         1 
+       112 |         1          2 |         3 
+       118 |         0          1 |         1 
+       135 |         0          1 |         1 
+       140 |         0          1 |         1 
+-----------+----------------------+----------
+     Total |        37         60 |        97 
+
+NOTA BRUTA |
+  NA PARTE |
+DISCURSIVA |
+        DO |
+COMPONENTE |
+ESPECIFICO |  CODIGO DO CURSO NO
+ (VALOR DE |         ENADE
+  0 A 100) |     12571      49468 |     Total
+-----------+----------------------+----------
+         1 |         6         25 |        31 
+         3 |         3          1 |         4 
+         5 |         2          4 |         6 
+         6 |         1          1 |         2 
+         7 |         2          3 |         5 
+         9 |         2          2 |         4 
+        10 |         0          1 |         1 
+        11 |         2          0 |         2 
+        12 |         1          0 |         1 
+        13 |         2          1 |         3 
+        14 |         2          1 |         3 
+        15 |         1          1 |         2 
+        16 |         1          1 |         2 
+        17 |         0          3 |         3 
+        18 |         0          1 |         1 
+        19 |         1          1 |         2 
+        20 |         1          1 |         2 
+        21 |         4          0 |         4 
+        22 |         0          2 |         2 
+        23 |         1          1 |         2 
+        24 |         1          1 |         2 
+        27 |         0          1 |         1 
+        30 |         1          1 |         2 
+        36 |         1          5 |         6 
+        41 |         1          0 |         1 
+        49 |         1          2 |         3 
+-----------+----------------------+----------
+     Total |        37         60 |        97 
+
+   1 - QUAL O GRAU DE |
+    DIFICULDADE DESTA |  CODIGO DO CURSO NO
+    PROVA NA PARTE DE |         ENADE
+      FORMACAO GERAL? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+           GRATUIDADE |         0          1 |         1 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         2          6 |         8 
+PROXIMIDADE DO MEU TR |        17         17 |        34 
+ FACILIDADE DE ACESSO |        17         26 |        43 
+  QUALIDADE/REPUTACAO |         1          7 |         8 
+FOI A UNICA ONDE TIVE |         0          1 |         1 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+   2 - QUAL O GRAU DE |
+    DIFICULDADE DESTA |
+    PROVA NA PARTE DO |  CODIGO DO CURSO NO
+           COMPONENTE |         ENADE
+          ESPECIFICO? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+           GRATUIDADE |         0          1 |         1 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         1          2 |         3 
+PROXIMIDADE DO MEU TR |         3          2 |         5 
+ FACILIDADE DE ACESSO |        23         29 |        52 
+  QUALIDADE/REPUTACAO |         8         22 |        30 
+FOI A UNICA ONDE TIVE |         2          2 |         4 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+   3 - CONSIDERANDO A |
+EXTENSAO DA PROVA, EM |  CODIGO DO CURSO NO
+     RELACAO AO TEMPO |         ENADE
+TOTAL, VOCE CONSIDERA |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         7          8 |        15 
+PROXIMIDADE DO MEU TR |         5         12 |        17 
+ FACILIDADE DE ACESSO |        21         34 |        55 
+  QUALIDADE/REPUTACAO |         3          3 |         6 
+FOI A UNICA ONDE TIVE |         1          1 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+4 - OS ENUNCIADOS DAS |
+ QUESTOES DA PROVA NA |  CODIGO DO CURSO NO
+    PARTE DE FORMACAO |         ENADE
+  GERAL ESTAVAM CLARO |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |        12         18 |        30 
+PROXIMIDADE DO MEU TR |        19         23 |        42 
+ FACILIDADE DE ACESSO |         4          9 |        13 
+  QUALIDADE/REPUTACAO |         2          6 |         8 
+FOI A UNICA ONDE TIVE |         0          2 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+5 - OS ENUNCIADOS DAS |
+ QUESTOES NA PARTE DO |  CODIGO DO CURSO NO
+COMPONENTE ESPECIFICO |         ENADE
+      ESTAVAM CLAROS  |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         8         18 |        26 
+PROXIMIDADE DO MEU TR |        24         29 |        53 
+ FACILIDADE DE ACESSO |         5          6 |        11 
+  QUALIDADE/REPUTACAO |         0          3 |         3 
+FOI A UNICA ONDE TIVE |         0          2 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+               6 - AS |
+INFORMACOES/INSTRUCOE |
+  S FORNECIDAS PARA A |  CODIGO DO CURSO NO
+        RESOLUCAO DAS |         ENADE
+   QUESTOES FORAM SUF |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         3          4 |         7 
+PROXIMIDADE DO MEU TR |        23         23 |        46 
+ FACILIDADE DE ACESSO |         9         23 |        32 
+  QUALIDADE/REPUTACAO |         2          5 |         7 
+FOI A UNICA ONDE TIVE |         0          3 |         3 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+  7 - VOCE SE DEPAROU |
+           COM ALGUMA |
+       DIFICULDADE AO |  CODIGO DO CURSO NO
+   RESPONDER A PROVA. |         ENADE
+                QUAL? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+ PRECO DA MENSALIDADE |         0          3 |         3 
+PROXIMIDADE DA MINHA  |         6          9 |        15 
+PROXIMIDADE DO MEU TR |         5         12 |        17 
+ FACILIDADE DE ACESSO |         0          2 |         2 
+  QUALIDADE/REPUTACAO |        22         22 |        44 
+FOI A UNICA ONDE TIVE |         4         12 |        16 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+     8 - CONSIDERANDO |
+   APENAS AS QUESTOES |  CODIGO DO CURSO NO
+  OBJETIVAS DA PROVA, |         ENADE
+   VOCE PERCEBEU QUE: |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+ PRECO DA MENSALIDADE |         0          4 |         4 
+PROXIMIDADE DO MEU TR |         1          4 |         5 
+ FACILIDADE DE ACESSO |         7         11 |        18 
+  QUALIDADE/REPUTACAO |        21         33 |        54 
+FOI A UNICA ONDE TIVE |         8          8 |        16 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+ 9 - QUAL FOI O TEMPO |  CODIGO DO CURSO NO
+  GASTO POR VOCE PARA |         ENADE
+    CONCLUIR A PROVA? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         1         16 |        17 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         0          2 |         2 
+PROXIMIDADE DO MEU TR |         9         20 |        29 
+ FACILIDADE DE ACESSO |        17         20 |        37 
+  QUALIDADE/REPUTACAO |        10         15 |        25 
+FOI A UNICA ONDE TIVE |         1          1 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+    QUAL O SEU ESTADO |         ENADE
+               CIVIL? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        37         58 |        95 
+ PRECO DA MENSALIDADE |         1         10 |        11 
+ FACILIDADE DE ACESSO |         0          2 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+  QUAL E A SUA COR OU |         ENADE
+                RACA? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        32         57 |        89 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         1          4 |         5 
+PROXIMIDADE DO MEU TR |         5          5 |        10 
+  QUALIDADE/REPUTACAO |         0          2 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+           QUAL A SUA |         ENADE
+       NACIONALIDADE? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        38         68 |       106 
+ PRECO DA MENSALIDADE |         0          1 |         1 
+PROXIMIDADE DA MINHA  |         0          1 |         1 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+     ATE QUE ETAPA DE |  CODIGO DO CURSO NO
+ESCOLARIZACAO SEU PAI |         ENADE
+            CONCLUIU? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        16         19 |        35 
+ PRECO DA MENSALIDADE |         6          6 |        12 
+PROXIMIDADE DA MINHA  |         0          4 |         4 
+PROXIMIDADE DO MEU TR |         6         21 |        27 
+ FACILIDADE DE ACESSO |         6         12 |        18 
+  QUALIDADE/REPUTACAO |         4          8 |        12 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+     ATE QUE ETAPA DE |  CODIGO DO CURSO NO
+ESCOLARIZACAO SUA MAE |         ENADE
+            CONCLUIU? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        16         18 |        34 
+ PRECO DA MENSALIDADE |         3          7 |        10 
+PROXIMIDADE DA MINHA  |         2          4 |         6 
+PROXIMIDADE DO MEU TR |         6         22 |        28 
+ FACILIDADE DE ACESSO |         4         13 |        17 
+  QUALIDADE/REPUTACAO |         7          6 |        13 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+                      |  CODIGO DO CURSO NO
+ ONDE E COM QUEM VOCE |         ENADE
+     MORA ATUALMENTE? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        18         20 |        38 
+ PRECO DA MENSALIDADE |        13         28 |        41 
+PROXIMIDADE DA MINHA  |         1         10 |        11 
+PROXIMIDADE DO MEU TR |         5         12 |        17 
+  QUALIDADE/REPUTACAO |         1          0 |         1 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+   QUANTAS PESSOAS DA |
+SUA FAMILIA MORAM COM |  CODIGO DO CURSO NO
+ VOCE? CONSIDERE SEUS |         ENADE
+   PAIS, IRMAOS, CONJ |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        24         29 |        53 
+ PRECO DA MENSALIDADE |         5         11 |        16 
+PROXIMIDADE DA MINHA  |         3         12 |        15 
+PROXIMIDADE DO MEU TR |         4         11 |        15 
+ FACILIDADE DE ACESSO |         1          6 |         7 
+  QUALIDADE/REPUTACAO |         1          1 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+QUAL A RENDA TOTAL DE |
+         SUA FAMILIA, |  CODIGO DO CURSO NO
+       INCLUINDO SEUS |         ENADE
+         RENDIMENTOS? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        17         22 |        39 
+ PRECO DA MENSALIDADE |         4          6 |        10 
+PROXIMIDADE DA MINHA  |         3          8 |        11 
+PROXIMIDADE DO MEU TR |         2          9 |        11 
+ FACILIDADE DE ACESSO |         6         13 |        19 
+  QUALIDADE/REPUTACAO |         4         11 |        15 
+FOI A UNICA ONDE TIVE |         2          1 |         3 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+   QUAL ALTERNATIVA A |
+        SEGUIR MELHOR |
+DESCREVE SUA SITUACAO |  CODIGO DO CURSO NO
+FINANCEIRA (INCLUINDO |         ENADE
+                  BOL |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        16         21 |        37 
+ PRECO DA MENSALIDADE |        10          9 |        19 
+PROXIMIDADE DA MINHA  |         8         14 |        22 
+PROXIMIDADE DO MEU TR |         2         13 |        15 
+ FACILIDADE DE ACESSO |         2         13 |        15 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+   QUAL ALTERNATIVA A |
+        SEGUIR MELHOR |
+DESCREVE SUA SITUACAO |  CODIGO DO CURSO NO
+  DE TRABALHO (EXCETO |         ENADE
+                ESTAG |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        30         31 |        61 
+ PRECO DA MENSALIDADE |         0          5 |         5 
+PROXIMIDADE DO MEU TR |         6          6 |        12 
+ FACILIDADE DE ACESSO |         2         28 |        30 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+ QUE TIPO DE BOLSA DE |
+           ESTUDOS OU |
+     FINANCIAMENTO DO |  CODIGO DO CURSO NO
+   CURSO VOCE RECEBEU |         ENADE
+         PARA CUSTEAR |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        38         69 |       107 
+                   11 |         0          1 |         1 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+      AO LONGO DA SUA |
+TRAJETORIA ACADEMICA, |
+   VOCE RECEBEU ALGUM |  CODIGO DO CURSO NO
+     TIPO DE BOLSA DE |         ENADE
+               PERMAN |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        34         65 |        99 
+PROXIMIDADE DO MEU TR |         1          1 |         2 
+ FACILIDADE DE ACESSO |         3          4 |         7 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+      AO LONGO DA SUA |
+TRAJETORIA ACADEMICA, |
+   VOCE RECEBEU ALGUM |  CODIGO DO CURSO NO
+        TIPO DE BOLSA |         ENADE
+            ACADEMICA |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        32         62 |        94 
+ PRECO DA MENSALIDADE |         3          2 |         5 
+PROXIMIDADE DA MINHA  |         0          2 |         2 
+PROXIMIDADE DO MEU TR |         0          3 |         3 
+ FACILIDADE DE ACESSO |         3          0 |         3 
+  QUALIDADE/REPUTACAO |         0          1 |         1 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+   DURANTE O CURSO DE |
+      GRADUACAO, VOCE |
+        PARTICIPOU DE |  CODIGO DO CURSO NO
+       PROGRAMAS E OU |         ENADE
+     ATIVIDADES CURRI |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        35         69 |       104 
+  QUALIDADE/REPUTACAO |         3          1 |         4 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+SEU INGRESSO NO CURSO |
+  DE GRADUACAO SE DEU |  CODIGO DO CURSO NO
+POR MEIO DE POLITICAS |         ENADE
+     DE ACAO AFIRMATI |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        31         54 |        85 
+ PRECO DA MENSALIDADE |         0          2 |         2 
+PROXIMIDADE DA MINHA  |         2          3 |         5 
+PROXIMIDADE DO MEU TR |         3         10 |        13 
+ FACILIDADE DE ACESSO |         2          1 |         3 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+    EM QUE UNIDADE DA |
+       FEDERACAO VOCE |  CODIGO DO CURSO NO
+    CONCLUIU O ENSINO |         ENADE
+               MEDIO? |     12571      49468 |     Total
+----------------------+----------------------+----------
+                   12 |        16         18 |        34 
+                   29 |         1          0 |         1 
+                   31 |         0          1 |         1 
+                   35 |         6          6 |        12 
+                   41 |        13         43 |        56 
+                   42 |         1          2 |         3 
+                   53 |         1          0 |         1 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+EM QUE TIPO DE ESCOLA |  CODIGO DO CURSO NO
+ VOCE CURSOU O ENSINO |         ENADE
+               MEDIO? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        26         40 |        66 
+ PRECO DA MENSALIDADE |        11         26 |        37 
+PROXIMIDADE DO MEU TR |         0          3 |         3 
+ FACILIDADE DE ACESSO |         1          1 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+   QUAL MODALIDADE DE |  CODIGO DO CURSO NO
+    ENSINO MEDIO VOCE |         ENADE
+            CONCLUIU? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        38         63 |       101 
+ PRECO DA MENSALIDADE |         0          7 |         7 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+        QUEM MAIS LHE |  CODIGO DO CURSO NO
+INCENTIVOU A CURSAR A |         ENADE
+           GRADUACAO? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        21         34 |        55 
+ PRECO DA MENSALIDADE |        15         32 |        47 
+PROXIMIDADE DA MINHA  |         0          2 |         2 
+PROXIMIDADE DO MEU TR |         2          1 |         3 
+  QUALIDADE/REPUTACAO |         0          1 |         1 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+     ALGUM DOS GRUPOS |
+           ABAIXO FOI |
+    DETERMINANTE PARA |  CODIGO DO CURSO NO
+       VOCE ENFRENTAR |         ENADE
+  DIFICULDADES DURANT |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        22         30 |        52 
+ PRECO DA MENSALIDADE |         0          9 |         9 
+PROXIMIDADE DA MINHA  |        11         13 |        24 
+ FACILIDADE DE ACESSO |         1          1 |         2 
+  QUALIDADE/REPUTACAO |         0          1 |         1 
+FOI A UNICA ONDE TIVE |         4          8 |        12 
+POSSIBILIDADE DE TER  |         0          6 |         6 
+                   12 |         0          2 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+ALGUEM EM SUA FAMILIA |  CODIGO DO CURSO NO
+    CONCLUIU UM CURSO |         ENADE
+            SUPERIOR? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        36         58 |        94 
+ PRECO DA MENSALIDADE |         2         12 |        14 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+     EXCETUANDO-SE OS |
+  LIVROS INDICADOS NA |
+  BIBLIOGRAFIA DO SEU |  CODIGO DO CURSO NO
+CURSO, QUANTOS LIVROS |         ENADE
+                    V |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        21         26 |        47 
+ PRECO DA MENSALIDADE |         2         17 |        19 
+PROXIMIDADE DA MINHA  |        11         17 |        28 
+PROXIMIDADE DO MEU TR |         2          3 |         5 
+ FACILIDADE DE ACESSO |         2          7 |         9 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+    QUANTAS HORAS POR |
+              SEMANA, |
+APROXIMADAMENTE, VOCE |  CODIGO DO CURSO NO
+ DEDICOU AOS ESTUDOS, |         ENADE
+          EXCETUANDO  |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        17         21 |        38 
+ PRECO DA MENSALIDADE |        13         27 |        40 
+PROXIMIDADE DA MINHA  |         4         10 |        14 
+PROXIMIDADE DO MEU TR |         3          5 |         8 
+ FACILIDADE DE ACESSO |         1          7 |         8 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+            VOCE TEVE |
+      OPORTUNIDADE DE |
+APRENDIZADO DE IDIOMA |  CODIGO DO CURSO NO
+       ESTRANGEIRO NA |         ENADE
+         INSTITUICAO? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        25         28 |        53 
+ PRECO DA MENSALIDADE |         0          1 |         1 
+PROXIMIDADE DA MINHA  |         1          5 |         6 
+PROXIMIDADE DO MEU TR |         0          3 |         3 
+ FACILIDADE DE ACESSO |        12         33 |        45 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+     QUAL O PRINCIPAL |  CODIGO DO CURSO NO
+ MOTIVO PARA VOCE TER |         ENADE
+ESCOLHIDO ESTE CURSO? |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |         0          6 |         6 
+           GRATUIDADE |        21         36 |        57 
+ PRECO DA MENSALIDADE |         3          1 |         4 
+PROXIMIDADE DA MINHA  |         3          6 |         9 
+PROXIMIDADE DO MEU TR |         2          1 |         3 
+ FACILIDADE DE ACESSO |         3         13 |        16 
+FOI A UNICA ONDE TIVE |         0          1 |         1 
+POSSIBILIDADE DE TER  |         6         12 |        18 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+     QUAL A PRINCIPAL |
+  RAZAO PARA VOCE TER |
+      ESCOLHIDO A SUA |  CODIGO DO CURSO NO
+       INSTITUICAO DE |         ENADE
+         EDUCACAO SUP |     12571      49468 |     Total
+----------------------+----------------------+----------
+         SEM RESPOSTA |        12         31 |        43 
+           GRATUIDADE |        25         44 |        69 
+PROXIMIDADE DA MINHA  |         1          1 |         2 
+----------------------+----------------------+----------
+                Total |        38         76 |       114 
+
+       AS DISCIPLINAS |
+CURSADAS CONTRIBUIRAM |
+    PARA SUA FORMACAO |  CODIGO DO CURSO NO
+       INTEGRAL, COMO |         ENADE
+           CIDADAO E  |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        18         19 |        37 
+             DISCORDO |         1          4 |         5 
+DISCORDO PARCIALMENTE |         2          3 |         5 
+CONCORDO PARCIALMENTE |         4         14 |        18 
+             CONCORDO |         6         20 |        26 
+  CONCORDO TOTALMENTE |         7         10 |        17 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+         OS CONTEUDOS |
+        ABORDADOS NAS |
+ DISCIPLINAS DO CURSO |  CODIGO DO CURSO NO
+      FAVORECERAM SUA |         ENADE
+     ATUACAO EM ESTAG |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        18         23 |        41 
+             DISCORDO |         4          7 |        11 
+DISCORDO PARCIALMENTE |         4         12 |        16 
+CONCORDO PARCIALMENTE |         7          8 |        15 
+             CONCORDO |         2         11 |        13 
+  CONCORDO TOTALMENTE |         1          7 |         8 
+----------------------+----------------------+----------
+                Total |        36         68 |       104 
+
+   AS METODOLOGIAS DE |
+ ENSINO UTILIZADAS NO |  CODIGO DO CURSO NO
+CURSO DESAFIARAM VOCE |         ENADE
+   A APROFUNDAR CONHE |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         20 |        36 
+             DISCORDO |         1          6 |         7 
+DISCORDO PARCIALMENTE |         4         10 |        14 
+CONCORDO PARCIALMENTE |         8         12 |        20 
+             CONCORDO |         2         15 |        17 
+  CONCORDO TOTALMENTE |         7          7 |        14 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+    O CURSO PROPICIOU |
+      EXPERIENCIAS DE |  CODIGO DO CURSO NO
+         APRENDIZAGEM |         ENADE
+          INOVADORAS. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        18         27 |        45 
+             DISCORDO |         2          6 |         8 
+DISCORDO PARCIALMENTE |         2          8 |        10 
+CONCORDO PARCIALMENTE |         7         18 |        25 
+             CONCORDO |         3          7 |        10 
+  CONCORDO TOTALMENTE |         6          4 |        10 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+   O CURSO CONTRIBUIU |
+               PARA O |
+   DESENVOLVIMENTO DA |  CODIGO DO CURSO NO
+SUA CONSCIENCIA ETICA |         ENADE
+        PARA O EXERCI |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         24 |        40 
+             DISCORDO |         1          0 |         1 
+DISCORDO PARCIALMENTE |         1          7 |         8 
+CONCORDO PARCIALMENTE |         4         10 |        14 
+             CONCORDO |         6         18 |        24 
+  CONCORDO TOTALMENTE |         9         11 |        20 
+----------------------+----------------------+----------
+                Total |        37         70 |       107 
+
+   NO CURSO VOCE TEVE |
+      OPORTUNIDADE DE |  CODIGO DO CURSO NO
+ APRENDER A TRABALHAR |         ENADE
+           EM EQUIPE. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         22 |        39 
+             DISCORDO |         0          4 |         4 
+DISCORDO PARCIALMENTE |         1          5 |         6 
+CONCORDO PARCIALMENTE |         4         16 |        20 
+             CONCORDO |         8         14 |        22 
+  CONCORDO TOTALMENTE |         8          9 |        17 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+ O CURSO POSSIBILITOU |
+         AUMENTAR SUA |
+        CAPACIDADE DE |  CODIGO DO CURSO NO
+           REFLEXAO E |         ENADE
+        ARGUMENTACAO. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         19 |        35 
+DISCORDO PARCIALMENTE |         0          7 |         7 
+CONCORDO PARCIALMENTE |         3          7 |        10 
+             CONCORDO |         3         16 |        19 
+  CONCORDO TOTALMENTE |        16         21 |        37 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+   O CURSO PROMOVEU O |
+   DESENVOLVIMENTO DA |
+    SUA CAPACIDADE DE |  CODIGO DO CURSO NO
+ PENSAR CRITICAMENTE, |         ENADE
+                  ANA |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         19 |        35 
+             DISCORDO |         0          2 |         2 
+DISCORDO PARCIALMENTE |         1          3 |         4 
+CONCORDO PARCIALMENTE |         1         10 |        11 
+             CONCORDO |         5         16 |        21 
+  CONCORDO TOTALMENTE |        15         20 |        35 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+   O CURSO CONTRIBUIU |
+PARA VOCE AMPLIAR SUA |
+        CAPACIDADE DE |  CODIGO DO CURSO NO
+      COMUNICACAO NAS |         ENADE
+            FORMAS OR |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         22 |        39 
+             DISCORDO |         0          2 |         2 
+DISCORDO PARCIALMENTE |         1          6 |         7 
+CONCORDO PARCIALMENTE |         4          9 |        13 
+             CONCORDO |         8         17 |        25 
+  CONCORDO TOTALMENTE |         8         14 |        22 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+   O CURSO CONTRIBUIU |
+               PARA O |
+   DESENVOLVIMENTO DA |  CODIGO DO CURSO NO
+    SUA CAPACIDADE DE |         ENADE
+    APRENDER E ATUALI |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         22 |        38 
+             DISCORDO |         0          5 |         5 
+DISCORDO PARCIALMENTE |         3          5 |         8 
+CONCORDO PARCIALMENTE |         2          9 |        11 
+             CONCORDO |         5         16 |        21 
+  CONCORDO TOTALMENTE |        12         13 |        25 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+          AS RELACOES |
+   PROFESSOR-ALUNO AO |
+       LONGO DO CURSO |  CODIGO DO CURSO NO
+   ESTIMULARAM VOCE A |         ENADE
+      ESTUDAR E APREN |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         24 |        40 
+             DISCORDO |         0          7 |         7 
+DISCORDO PARCIALMENTE |         6         11 |        17 
+CONCORDO PARCIALMENTE |         2         10 |        12 
+             CONCORDO |         8         11 |        19 
+  CONCORDO TOTALMENTE |         6          7 |        13 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+  OS PLANOS DE ENSINO |
+   APRESENTADOS PELOS |
+          PROFESSORES |  CODIGO DO CURSO NO
+  CONTRIBUIRAM PARA O |         ENADE
+            DESENVOLV |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         21 |        37 
+             DISCORDO |         3          7 |        10 
+DISCORDO PARCIALMENTE |         3          8 |        11 
+CONCORDO PARCIALMENTE |         6         15 |        21 
+             CONCORDO |         8         15 |        23 
+  CONCORDO TOTALMENTE |         2          4 |         6 
+----------------------+----------------------+----------
+                Total |        38         70 |       108 
+
+       AS REFERENCIAS |
+       BIBLIOGRAFICAS |
+      INDICADAS PELOS |  CODIGO DO CURSO NO
+      PROFESSORES NOS |         ENADE
+   PLANOS DE ENSINO C |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         19 |        36 
+             DISCORDO |         0          3 |         3 
+DISCORDO PARCIALMENTE |         1         10 |        11 
+CONCORDO PARCIALMENTE |         6         14 |        20 
+             CONCORDO |         6         16 |        22 
+  CONCORDO TOTALMENTE |         8          7 |        15 
+----------------------+----------------------+----------
+                Total |        38         69 |       107 
+
+     FORAM OFERECIDAS |
+OPORTUNIDADES PARA OS |  CODIGO DO CURSO NO
+ ESTUDANTES SUPERAREM |         ENADE
+ DIFICULDADES RELACIO |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         28 |        44 
+             DISCORDO |         1          7 |         8 
+DISCORDO PARCIALMENTE |         7          8 |        15 
+CONCORDO PARCIALMENTE |         6         13 |        19 
+             CONCORDO |         2          8 |        10 
+  CONCORDO TOTALMENTE |         4          4 |         8 
+----------------------+----------------------+----------
+                Total |        36         68 |       104 
+
+     A COORDENACAO DO |
+         CURSO ESTEVE |
+      DISPONIVEL PARA |  CODIGO DO CURSO NO
+ ORIENTACAO ACADEMICA |         ENADE
+        DOS ESTUDANTE |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         24 |        40 
+             DISCORDO |         0          7 |         7 
+DISCORDO PARCIALMENTE |         3          5 |         8 
+CONCORDO PARCIALMENTE |         3          8 |        11 
+             CONCORDO |         5         17 |        22 
+  CONCORDO TOTALMENTE |        11          5 |        16 
+----------------------+----------------------+----------
+                Total |        38         66 |       104 
+
+    O CURSO EXIGIU DE |
+   VOCE ORGANIZACAO E |  CODIGO DO CURSO NO
+  DEDICACAO FREQUENTE |         ENADE
+         AOS ESTUDOS. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         20 |        36 
+             DISCORDO |         1          4 |         5 
+DISCORDO PARCIALMENTE |         5          3 |         8 
+CONCORDO PARCIALMENTE |         3         10 |        13 
+             CONCORDO |         3         15 |        18 
+  CONCORDO TOTALMENTE |        10         17 |        27 
+----------------------+----------------------+----------
+                Total |        38         69 |       107 
+
+     FORAM OFERECIDAS |
+OPORTUNIDADES PARA OS |
+           ESTUDANTES |  CODIGO DO CURSO NO
+      PARTICIPAREM DE |         ENADE
+       PROGRAMAS, PRO |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         22 |        38 
+             DISCORDO |         0         11 |        11 
+DISCORDO PARCIALMENTE |         2          8 |        10 
+CONCORDO PARCIALMENTE |         7          9 |        16 
+             CONCORDO |         2          9 |        11 
+  CONCORDO TOTALMENTE |        10          8 |        18 
+----------------------+----------------------+----------
+                Total |        37         67 |       104 
+
+     FORAM OFERECIDAS |
+OPORTUNIDADES PARA OS |
+           ESTUDANTES |  CODIGO DO CURSO NO
+      PARTICIPAREM DE |         ENADE
+       PROJETOS DE IN |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         21 |        37 
+             DISCORDO |         0         13 |        13 
+DISCORDO PARCIALMENTE |         2          7 |         9 
+CONCORDO PARCIALMENTE |         2         10 |        12 
+             CONCORDO |         6          6 |        12 
+  CONCORDO TOTALMENTE |        12          9 |        21 
+----------------------+----------------------+----------
+                Total |        38         66 |       104 
+
+     O CURSO OFERECEU |
+    CONDICOES PARA OS |
+           ESTUDANTES |  CODIGO DO CURSO NO
+      PARTICIPAREM DE |         ENADE
+   EVENTOS INTERNOS E |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         22 |        38 
+             DISCORDO |         2          7 |         9 
+DISCORDO PARCIALMENTE |         0          4 |         4 
+CONCORDO PARCIALMENTE |         6         21 |        27 
+             CONCORDO |         7          7 |        14 
+  CONCORDO TOTALMENTE |         6          6 |        12 
+----------------------+----------------------+----------
+                Total |        37         67 |       104 
+
+        A INSTITUICAO |
+             OFERECEU |
+OPORTUNIDADES PARA OS |  CODIGO DO CURSO NO
+   ESTUDANTES ATUAREM |         ENADE
+     COMO REPRESENTAN |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         26 |        43 
+             DISCORDO |         1          6 |         7 
+DISCORDO PARCIALMENTE |         4         11 |        15 
+CONCORDO PARCIALMENTE |         1          5 |         6 
+             CONCORDO |         4          8 |        12 
+  CONCORDO TOTALMENTE |         4          6 |        10 
+----------------------+----------------------+----------
+                Total |        31         62 |        93 
+
+  O CURSO FAVORECEU A |
+       ARTICULACAO DO |
+ CONHECIMENTO TEORICO |  CODIGO DO CURSO NO
+       COM ATIVIDADES |         ENADE
+            PRATICAS. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        20         29 |        49 
+             DISCORDO |         3         10 |        13 
+DISCORDO PARCIALMENTE |         6          8 |        14 
+CONCORDO PARCIALMENTE |         7          7 |        14 
+             CONCORDO |         0         10 |        10 
+  CONCORDO TOTALMENTE |         2          1 |         3 
+----------------------+----------------------+----------
+                Total |        38         65 |       103 
+
+        AS ATIVIDADES |
+       PRATICAS FORAM |
+     SUFICIENTES PARA |  CODIGO DO CURSO NO
+        RELACIONAR OS |         ENADE
+ CONTEUDOS DO CURSO C |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        18         33 |        51 
+             DISCORDO |         5          8 |        13 
+DISCORDO PARCIALMENTE |         4          7 |        11 
+CONCORDO PARCIALMENTE |         4          9 |        13 
+             CONCORDO |         2          7 |         9 
+  CONCORDO TOTALMENTE |         2          1 |         3 
+----------------------+----------------------+----------
+                Total |        35         65 |       100 
+
+    O CURSO PROPICIOU |
+             ACESSO A |
+        CONHECIMENTOS |  CODIGO DO CURSO NO
+     ATUALIZADOS E/OU |         ENADE
+CONTEMPORANEOS EM SUA |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         22 |        39 
+             DISCORDO |         0          8 |         8 
+DISCORDO PARCIALMENTE |         3          7 |        10 
+CONCORDO PARCIALMENTE |         7         12 |        19 
+             CONCORDO |         6         16 |        22 
+  CONCORDO TOTALMENTE |         4          4 |         8 
+----------------------+----------------------+----------
+                Total |        37         69 |       106 
+
+            O ESTAGIO |
+       SUPERVISIONADO |
+         PROPORCIONOU |
+         EXPERIENCIAS |  CODIGO DO CURSO NO
+DIVERSIFICADAS PARA A |         ENADE
+              SUA FOR |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         21 |        37 
+             DISCORDO |         1          0 |         1 
+DISCORDO PARCIALMENTE |         0          1 |         1 
+CONCORDO PARCIALMENTE |         2          7 |         9 
+             CONCORDO |         3         13 |        16 
+  CONCORDO TOTALMENTE |         7          9 |        16 
+----------------------+----------------------+----------
+                Total |        29         51 |        80 
+
+        AS ATIVIDADES |
+   REALIZADAS DURANTE |
+      SEU TRABALHO DE |  CODIGO DO CURSO NO
+   CONCLUSAO DE CURSO |         ENADE
+         CONTRIBUIRAM |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         20 |        37 
+             DISCORDO |         0          2 |         2 
+DISCORDO PARCIALMENTE |         2          1 |         3 
+CONCORDO PARCIALMENTE |         3         12 |        15 
+             CONCORDO |         4         17 |        21 
+  CONCORDO TOTALMENTE |         8          9 |        17 
+----------------------+----------------------+----------
+                Total |        34         61 |        95 
+
+     FORAM OFERECIDAS |
+OPORTUNIDADES PARA OS |  CODIGO DO CURSO NO
+ESTUDANTES REALIZAREM |         ENADE
+  INTERCAMBIOS E/OU E |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        19         35 |        54 
+             DISCORDO |         4          5 |         9 
+DISCORDO PARCIALMENTE |         2          6 |         8 
+CONCORDO PARCIALMENTE |         2          6 |         8 
+             CONCORDO |         2         10 |        12 
+  CONCORDO TOTALMENTE |         2          2 |         4 
+----------------------+----------------------+----------
+                Total |        31         64 |        95 
+
+     FORAM OFERECIDAS |
+OPORTUNIDADES PARA OS |  CODIGO DO CURSO NO
+ESTUDANTES REALIZAREM |         ENADE
+  INTERCAMBIOS E/OU E |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        23         42 |        65 
+             DISCORDO |         1          7 |         8 
+DISCORDO PARCIALMENTE |         2          4 |         6 
+CONCORDO PARCIALMENTE |         5          2 |         7 
+             CONCORDO |         0          7 |         7 
+  CONCORDO TOTALMENTE |         2          2 |         4 
+----------------------+----------------------+----------
+                Total |        33         64 |        97 
+
+        OS ESTUDANTES |
+      PARTICIPARAM DE |
+AVALIACOES PERIODICAS |  CODIGO DO CURSO NO
+             DO CURSO |         ENADE
+  (DISCIPLINAS, ATUAC |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        19         27 |        46 
+             DISCORDO |         1          9 |        10 
+DISCORDO PARCIALMENTE |         2         11 |        13 
+CONCORDO PARCIALMENTE |         2          7 |         9 
+             CONCORDO |         2          8 |        10 
+  CONCORDO TOTALMENTE |         5          3 |         8 
+----------------------+----------------------+----------
+                Total |        31         65 |        96 
+
+     AS AVALIACOES DE |
+         APRENDIZAGEM |
+ REALIZADAS DURANTE O |  CODIGO DO CURSO NO
+          CURSO FORAM |         ENADE
+    COMPATIVEIS COM O |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         20 |        36 
+             DISCORDO |         0          3 |         3 
+DISCORDO PARCIALMENTE |         0         11 |        11 
+CONCORDO PARCIALMENTE |         7          8 |        15 
+             CONCORDO |         8         16 |        24 
+  CONCORDO TOTALMENTE |         6          8 |        14 
+----------------------+----------------------+----------
+                Total |        37         66 |       103 
+
+       OS PROFESSORES |
+         APRESENTARAM |
+ DISPONIBILIDADE PARA |  CODIGO DO CURSO NO
+ATENDER OS ESTUDANTES |         ENADE
+            FORA DO H |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         19 |        36 
+             DISCORDO |         0          5 |         5 
+DISCORDO PARCIALMENTE |         1          5 |         6 
+CONCORDO PARCIALMENTE |         6          8 |        14 
+             CONCORDO |         7         21 |        28 
+  CONCORDO TOTALMENTE |         7          8 |        15 
+----------------------+----------------------+----------
+                Total |        38         66 |       104 
+
+       OS PROFESSORES |
+ DEMONSTRARAM DOMINIO |
+        DOS CONTEUDOS |  CODIGO DO CURSO NO
+        ABORDADOS NAS |         ENADE
+         DISCIPLINAS. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         18 |        34 
+             DISCORDO |         0          2 |         2 
+DISCORDO PARCIALMENTE |         0          1 |         1 
+CONCORDO PARCIALMENTE |         3         11 |        14 
+             CONCORDO |         8         23 |        31 
+  CONCORDO TOTALMENTE |        11         14 |        25 
+----------------------+----------------------+----------
+                Total |        38         69 |       107 
+
+       OS PROFESSORES |
+           UTILIZARAM |
+       TECNOLOGIAS DA |
+         INFORMACAO E |  CODIGO DO CURSO NO
+  COMUNICACAO (TIC'S) |         ENADE
+               COMO E |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         18 |        34 
+             DISCORDO |         0          3 |         3 
+DISCORDO PARCIALMENTE |         3          5 |         8 
+CONCORDO PARCIALMENTE |         1          9 |        10 
+             CONCORDO |        12         22 |        34 
+  CONCORDO TOTALMENTE |         6         11 |        17 
+----------------------+----------------------+----------
+                Total |        38         68 |       106 
+
+ A INSTITUICAO DISPOS |
+        DE QUANTIDADE |
+        SUFICIENTE DE |  CODIGO DO CURSO NO
+  FUNCIONARIOS PARA O |         ENADE
+          APOIO ADMIN |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         20 |        36 
+             DISCORDO |         0          3 |         3 
+DISCORDO PARCIALMENTE |         1          4 |         5 
+CONCORDO PARCIALMENTE |         1          5 |         6 
+             CONCORDO |         8         18 |        26 
+  CONCORDO TOTALMENTE |        11         17 |        28 
+----------------------+----------------------+----------
+                Total |        37         67 |       104 
+
+              O CURSO |
+       DISPONIBILIZOU |
+ MONITORES OU TUTORES |  CODIGO DO CURSO NO
+     PARA AUXILIAR OS |         ENADE
+          ESTUDANTES. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         18 |        34 
+             DISCORDO |         1          4 |         5 
+DISCORDO PARCIALMENTE |         2          8 |        10 
+CONCORDO PARCIALMENTE |         1          8 |         9 
+             CONCORDO |        11         16 |        27 
+  CONCORDO TOTALMENTE |         7         14 |        21 
+----------------------+----------------------+----------
+                Total |        38         68 |       106 
+
+      AS CONDICOES DE |
+   INFRAESTRUTURA DAS |  CODIGO DO CURSO NO
+  SALAS DE AULA FORAM |         ENADE
+           ADEQUADAS. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         19 |        35 
+             DISCORDO |         0          1 |         1 
+DISCORDO PARCIALMENTE |         0          7 |         7 
+CONCORDO PARCIALMENTE |         5         11 |        16 
+             CONCORDO |        10         19 |        29 
+  CONCORDO TOTALMENTE |         7         12 |        19 
+----------------------+----------------------+----------
+                Total |        38         69 |       107 
+
+    OS EQUIPAMENTOS E |
+MATERIAIS DISPONIVEIS |
+        PARA AS AULAS |  CODIGO DO CURSO NO
+       PRATICAS FORAM |         ENADE
+          ADEQUADOS P |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         20 |        36 
+             DISCORDO |         0          3 |         3 
+DISCORDO PARCIALMENTE |         2          6 |         8 
+CONCORDO PARCIALMENTE |         4          9 |        13 
+             CONCORDO |         6         14 |        20 
+  CONCORDO TOTALMENTE |         6         10 |        16 
+----------------------+----------------------+----------
+                Total |        34         62 |        96 
+
+       OS AMBIENTES E |
+         EQUIPAMENTOS |
+  DESTINADOS AS AULAS |  CODIGO DO CURSO NO
+       PRATICAS FORAM |         ENADE
+    ADEQUADOS AO CURS |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        17         21 |        38 
+             DISCORDO |         1          3 |         4 
+DISCORDO PARCIALMENTE |         1          5 |         6 
+CONCORDO PARCIALMENTE |         2          9 |        11 
+             CONCORDO |         6         15 |        21 
+  CONCORDO TOTALMENTE |         4          8 |        12 
+----------------------+----------------------+----------
+                Total |        31         61 |        92 
+
+  A BIBLIOTECA DISPOS |
+      DAS REFERENCIAS |
+BIBLIOGRAFICAS QUE OS |  CODIGO DO CURSO NO
+           ESTUDANTES |         ENADE
+          NECESSITARA |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         19 |        35 
+             DISCORDO |         0          4 |         4 
+DISCORDO PARCIALMENTE |         1          4 |         5 
+CONCORDO PARCIALMENTE |         4          9 |        13 
+             CONCORDO |        11         16 |        27 
+  CONCORDO TOTALMENTE |         6         16 |        22 
+----------------------+----------------------+----------
+                Total |        38         68 |       106 
+
+ A INSTITUICAO CONTOU |
+       COM BIBLIOTECA |
+  VIRTUAL OU CONFERIU |  CODIGO DO CURSO NO
+       ACESSO A OBRAS |         ENADE
+            DISPONIVE |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        21         22 |        43 
+             DISCORDO |         1          5 |         6 
+DISCORDO PARCIALMENTE |         1          7 |         8 
+CONCORDO PARCIALMENTE |         5         10 |        15 
+             CONCORDO |         1          7 |         8 
+  CONCORDO TOTALMENTE |         5         10 |        15 
+----------------------+----------------------+----------
+                Total |        34         61 |        95 
+
+        AS ATIVIDADES |
+           ACADEMICAS |
+ DESENVOLVIDAS DENTRO |  CODIGO DO CURSO NO
+    E FORA DA SALA DE |         ENADE
+     AULA POSSIBILITA |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         20 |        36 
+             DISCORDO |         1          2 |         3 
+DISCORDO PARCIALMENTE |         1          5 |         6 
+CONCORDO PARCIALMENTE |         3         12 |        15 
+             CONCORDO |         5         18 |        23 
+  CONCORDO TOTALMENTE |        11         10 |        21 
+----------------------+----------------------+----------
+                Total |        37         67 |       104 
+
+        A INSTITUICAO |
+  PROMOVEU ATIVIDADES |  CODIGO DO CURSO NO
+ DE CULTURA, DE LAZER |         ENADE
+  E INTERACAO SOCIAL. |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        19         29 |        48 
+             DISCORDO |         2          4 |         6 
+DISCORDO PARCIALMENTE |         2          8 |        10 
+CONCORDO PARCIALMENTE |         5          8 |        13 
+             CONCORDO |         3         11 |        14 
+  CONCORDO TOTALMENTE |         5          5 |        10 
+----------------------+----------------------+----------
+                Total |        36         65 |       101 
+
+ A INSTITUICAO DISPOS |
+       DE REFEITORIO, |
+  CANTINA E BANHEIROS |  CODIGO DO CURSO NO
+         EM CONDICOES |         ENADE
+          ADEQUADAS Q |     12571      49468 |     Total
+----------------------+----------------------+----------
+  DISCORDO TOTALMENTE |        16         20 |        36 
+             DISCORDO |         0          4 |         4 
+DISCORDO PARCIALMENTE |         0          2 |         2 
+CONCORDO PARCIALMENTE |         6         13 |        19 
+             CONCORDO |         6         15 |        21 
+  CONCORDO TOTALMENTE |        10         15 |        25 
+----------------------+----------------------+----------
+                Total |        38         69 |       107 
+
+. 
+. log close
+      name:  <unnamed>
+       log:  C:\Users\Raquel\GitHub\economia-ufpr-enade-2018\\Resultados-Economia-ENADE-2018.log
+  log type:  text
+ closed on:   3 Jun 2020, 16:37:18
+--------------------------------------------------------------------------------------------------------

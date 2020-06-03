@@ -1,6 +1,6 @@
 clear all
 
-global diretorio "C:\Users\Raquel\Desktop\Economia-UFPR-Enade\2018\"
+global diretorio "C:\Users\Raquel\GitHub\economia-ufpr-enade-2018\"
 
 cd "$diretorio\dados"
 
@@ -23,5 +23,31 @@ export excel using "microdados_enade_ufpr_2018.xlsx", firstrow(variables) replac
 
 keep if CO_CURSO==12571 | CO_CURSO==49468
 
-gen curso=str(50)
-replace curso=12571 "CIÊNCIAS ECONÔMICAS - DIURNO" 49468 "CIÊNCIAS ECONÔMICAS NOTURNO"
+/* GERA ALGUMAS ANÁLISES */
+
+log using "$diretorio\Resultados-Economia-ENADE-2018.log", replace
+
+// Iniciamos com uma descrição do banco de dados
+
+// Média, mínimo, máximo e desvio-padrão de todas as variáveis não-string
+
+ds, has(type numeric)
+
+local numericas `r(varlist)'
+
+foreach var of local numericas {
+	tab CO_CURSO if CO_CURSO==12571 | CO_CURSO==49468, sum(`var')
+}
+
+//Tabulação de todas as variáveis categóricas da base
+
+ds, has(vall)
+
+local categoricas `r(varlist)'
+
+foreach var of local categoricas {
+	tab `var' CO_CURSO if CO_CURSO==12571 | CO_CURSO==49468
+}
+
+log close
+
